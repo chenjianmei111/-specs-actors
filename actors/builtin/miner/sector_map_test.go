@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/specs-actors/actors/builtin/miner"
+	"github.com/chenjianmei111/specs-actors/actors/builtin/miner"
 )
 
 func TestDeadlineSectorMap(t *testing.T) {

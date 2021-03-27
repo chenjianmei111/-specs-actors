@@ -8,7 +8,7 @@ import (
 	cid "github.com/ipfs/go-cid"
 	"golang.org/x/xerrors"
 
-	adt "github.com/filecoin-project/specs-actors/actors/util/adt"
+	adt "github.com/chenjianmei111/specs-actors/actors/util/adt"
 )
 
 type State struct {
@@ -42,7 +42,7 @@ func (st *State) AmountLocked(elapsedEpoch abi.ChainEpoch) abi.TokenAmount {
 		return st.InitialBalance
 	}
 
-	// TODO: fix division truncation https://github.com/filecoin-project/specs-actors/issues/1131
+	// TODO: fix division truncation https://github.com/chenjianmei111/specs-actors/issues/1131
 	unitLocked := big.Div(st.InitialBalance, big.NewInt(int64(st.UnlockDuration)))
 	return big.Mul(unitLocked, big.Sub(big.NewInt(int64(st.UnlockDuration)), big.NewInt(int64(elapsedEpoch))))
 }

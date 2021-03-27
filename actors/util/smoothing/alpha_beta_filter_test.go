@@ -9,9 +9,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/specs-actors/actors/builtin"
-	"github.com/filecoin-project/specs-actors/actors/util/math"
-	"github.com/filecoin-project/specs-actors/actors/util/smoothing"
+	"github.com/chenjianmei111/specs-actors/actors/builtin"
+	"github.com/chenjianmei111/specs-actors/actors/util/math"
+	"github.com/chenjianmei111/specs-actors/actors/util/smoothing"
 )
 
 // project of cumsum ratio is equal to cumsum of ratio of projections

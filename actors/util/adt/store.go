@@ -8,7 +8,7 @@ import (
 	cid "github.com/ipfs/go-cid"
 	ipldcbor "github.com/ipfs/go-ipld-cbor"
 
-	vmr "github.com/filecoin-project/specs-actors/actors/runtime"
+	vmr "github.com/chenjianmei111/specs-actors/actors/runtime"
 )
 
 // Store defines an interface required to back the ADTs in this package.
@@ -55,7 +55,7 @@ func (r rtStore) Context() context.Context {
 
 func (r rtStore) Get(_ context.Context, c cid.Cid, out interface{}) error {
 	// The Go context is (un/fortunately?) dropped here.
-	// See https://github.com/filecoin-project/specs-actors/issues/140
+	// See https://github.com/chenjianmei111/specs-actors/issues/140
 	if !r.StoreGet(c, out.(cbor.Unmarshaler)) {
 		r.Abortf(exitcode.ErrNotFound, "not found")
 	}
@@ -64,6 +64,6 @@ func (r rtStore) Get(_ context.Context, c cid.Cid, out interface{}) error {
 
 func (r rtStore) Put(_ context.Context, v interface{}) (cid.Cid, error) {
 	// The Go context is (un/fortunately?) dropped here.
-	// See https://github.com/filecoin-project/specs-actors/issues/140
+	// See https://github.com/chenjianmei111/specs-actors/issues/140
 	return r.StorePut(v.(cbor.Marshaler)), nil
 }

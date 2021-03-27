@@ -8,8 +8,8 @@ import (
 	cid "github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
 
-	miner "github.com/filecoin-project/specs-actors/actors/builtin/miner"
-	"github.com/filecoin-project/specs-actors/actors/states"
+	miner "github.com/chenjianmei111/specs-actors/actors/builtin/miner"
+	"github.com/chenjianmei111/specs-actors/actors/states"
 )
 
 type minerMigrator struct {
@@ -21,7 +21,7 @@ func (m *minerMigrator) MigrateState(ctx context.Context, store cbor.IpldStore, 
 		return cid.Undef, err
 	}
 
-	// TODO: https://github.com/filecoin-project/specs-actors/issues/1177
+	// TODO: https://github.com/chenjianmei111/specs-actors/issues/1177
 	//  - repair broken partitions, deadline info:
 	//  - fix power actor claim with any power delta
 

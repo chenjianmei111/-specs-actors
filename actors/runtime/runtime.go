@@ -15,7 +15,7 @@ import (
 	"github.com/filecoin-project/go-state-types/rt"
 	cid "github.com/ipfs/go-cid"
 
-	"github.com/filecoin-project/specs-actors/actors/runtime/proof"
+	"github.com/chenjianmei111/specs-actors/actors/runtime/proof"
 )
 
 // Runtime is the VM's internal runtime object.

@@ -8,8 +8,8 @@ import (
 	cid "github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
 
-	"github.com/filecoin-project/specs-actors/actors/builtin/reward"
-	"github.com/filecoin-project/specs-actors/actors/states"
+	"github.com/chenjianmei111/specs-actors/actors/builtin/reward"
+	"github.com/chenjianmei111/specs-actors/actors/states"
 )
 
 type rewardMigrator struct {

@@ -15,13 +15,13 @@ import (
 	assert "github.com/stretchr/testify/assert"
 	require "github.com/stretchr/testify/require"
 
-	builtin "github.com/filecoin-project/specs-actors/actors/builtin"
-	miner "github.com/filecoin-project/specs-actors/actors/builtin/miner"
-	multisig "github.com/filecoin-project/specs-actors/actors/builtin/multisig"
-	runtime "github.com/filecoin-project/specs-actors/actors/runtime"
-	adt "github.com/filecoin-project/specs-actors/actors/util/adt"
-	mock "github.com/filecoin-project/specs-actors/support/mock"
-	tutil "github.com/filecoin-project/specs-actors/support/testing"
+	builtin "github.com/chenjianmei111/specs-actors/actors/builtin"
+	miner "github.com/chenjianmei111/specs-actors/actors/builtin/miner"
+	multisig "github.com/chenjianmei111/specs-actors/actors/builtin/multisig"
+	runtime "github.com/chenjianmei111/specs-actors/actors/runtime"
+	adt "github.com/chenjianmei111/specs-actors/actors/util/adt"
+	mock "github.com/chenjianmei111/specs-actors/support/mock"
+	tutil "github.com/chenjianmei111/specs-actors/support/testing"
 )
 
 func TestExports(t *testing.T) {
@@ -1508,7 +1508,7 @@ func TestChangeThreshold(t *testing.T) {
 			setThreshold:     uint64(len(initialSigner) + 1),
 			code:             exitcode.ErrIllegalArgument,
 		},
-		// TODO missing test case that needs definition: https://github.com/filecoin-project/specs-actors/issues/71
+		// TODO missing test case that needs definition: https://github.com/chenjianmei111/specs-actors/issues/71
 		// what happens when threshold is reduced below the number of approvers an existing transaction already ha
 	}
 

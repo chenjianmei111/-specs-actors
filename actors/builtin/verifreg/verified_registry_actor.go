@@ -8,10 +8,10 @@ import (
 	"github.com/filecoin-project/go-state-types/exitcode"
 	"github.com/ipfs/go-cid"
 
-	"github.com/filecoin-project/specs-actors/actors/builtin"
-	"github.com/filecoin-project/specs-actors/actors/runtime"
-	. "github.com/filecoin-project/specs-actors/actors/util"
-	"github.com/filecoin-project/specs-actors/actors/util/adt"
+	"github.com/chenjianmei111/specs-actors/actors/builtin"
+	"github.com/chenjianmei111/specs-actors/actors/runtime"
+	. "github.com/chenjianmei111/specs-actors/actors/util"
+	"github.com/chenjianmei111/specs-actors/actors/util/adt"
 )
 
 type Actor struct{}
@@ -75,7 +75,7 @@ func (a Actor) AddVerifier(rt runtime.Runtime, params *AddVerifierParams) *abi.E
 	rt.ValidateImmediateCallerIs(st.RootKey)
 
 	// TODO We need to resolve the verifier address to an ID address before making this comparison.
-	// https://github.com/filecoin-project/specs-actors/issues/556
+	// https://github.com/chenjianmei111/specs-actors/issues/556
 	if params.Address == st.RootKey {
 		rt.Abortf(exitcode.ErrIllegalArgument, "Rootkey cannot be added as verifier")
 	}
@@ -136,7 +136,7 @@ func (a Actor) AddVerifiedClient(rt runtime.Runtime, params *AddVerifiedClientPa
 	var st State
 	rt.StateReadonly(&st)
 	// TODO We need to resolve the client address to an ID address before making this comparison.
-	// https://github.com/filecoin-project/specs-actors/issues/556
+	// https://github.com/chenjianmei111/specs-actors/issues/556
 	if st.RootKey == params.Address {
 		rt.Abortf(exitcode.ErrIllegalArgument, "Rootkey cannot be added as a verified client")
 	}
@@ -263,7 +263,7 @@ func (a Actor) RestoreBytes(rt runtime.Runtime, params *RestoreBytesParams) *abi
 	var st State
 	rt.StateReadonly(&st)
 	// TODO We need to resolve the client address to an ID address before making this comparison.
-	// https://github.com/filecoin-project/specs-actors/issues/556
+	// https://github.com/chenjianmei111/specs-actors/issues/556
 	if st.RootKey == params.Address {
 		rt.Abortf(exitcode.ErrIllegalArgument, "Cannot restore allowance for Rootkey")
 	}

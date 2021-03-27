@@ -9,10 +9,10 @@ import (
 	exitcode "github.com/filecoin-project/go-state-types/exitcode"
 	"github.com/stretchr/testify/assert"
 
-	builtin "github.com/filecoin-project/specs-actors/actors/builtin"
-	cron "github.com/filecoin-project/specs-actors/actors/builtin/cron"
-	mock "github.com/filecoin-project/specs-actors/support/mock"
-	tutil "github.com/filecoin-project/specs-actors/support/testing"
+	builtin "github.com/chenjianmei111/specs-actors/actors/builtin"
+	cron "github.com/chenjianmei111/specs-actors/actors/builtin/cron"
+	mock "github.com/chenjianmei111/specs-actors/support/mock"
+	tutil "github.com/chenjianmei111/specs-actors/support/testing"
 )
 
 func TestExports(t *testing.T) {

@@ -3,7 +3,7 @@ package vm_test
 import (
 	"context"
 	"fmt"
-	"github.com/filecoin-project/specs-actors/actors/states"
+	"github.com/chenjianmei111/specs-actors/actors/states"
 
 	"github.com/filecoin-project/go-address"
 	hamt "github.com/filecoin-project/go-hamt-ipld"
@@ -16,10 +16,10 @@ import (
 	"github.com/ipfs/go-cid"
 	"github.com/pkg/errors"
 
-	"github.com/filecoin-project/specs-actors/actors/builtin"
-	init_ "github.com/filecoin-project/specs-actors/actors/builtin/init"
-	"github.com/filecoin-project/specs-actors/actors/runtime"
-	"github.com/filecoin-project/specs-actors/actors/util/adt"
+	"github.com/chenjianmei111/specs-actors/actors/builtin"
+	init_ "github.com/chenjianmei111/specs-actors/actors/builtin/init"
+	"github.com/chenjianmei111/specs-actors/actors/runtime"
+	"github.com/chenjianmei111/specs-actors/actors/util/adt"
 )
 
 // VM is a simplified message execution framework for the purposes of testing inter-actor communication.
