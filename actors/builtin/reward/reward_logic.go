@@ -18,7 +18,7 @@ import (
 var BaselineExponent = big.MustFromString("340282591298641078465964189926313473653") // Q.128
 
 // 2.5057116798121726 EiB
-var BaselineInitialValue = big.NewInt(2_888_888_880_000_000_000) // Q.0
+var BaselineInitialValue = big.NewInt(2_880_000) // Q.0
 
 // Initialize baseline power for epoch -1 so that baseline power at epoch 0 is
 // BaselineInitialValue.
@@ -38,8 +38,8 @@ func BaselinePowerFromPrev(prevEpochBaselinePower abi.StoragePower) abi.StorageP
 // These numbers are estimates of the onchain constants.  They are good for initializing state in
 // devnets and testing but will not match the on chain values exactly which depend on storage onboarding
 // and upgrade epoch history. They are in units of attoFIL, 10^-18 FIL
-var DefaultSimpleTotal = big.Mul(big.NewInt(330e6), big.NewInt(1e18))   // 330M
-var DefaultBaselineTotal = big.Mul(big.NewInt(770e6), big.NewInt(1e18)) // 770M
+var DefaultSimpleTotal = big.Mul(big.NewInt(170999990), big.NewInt(1e18)) // 330M
+var DefaultBaselineTotal = big.Mul(big.NewInt(10), big.NewInt(1e18))      // 770M
 
 // Computes RewardTheta which is is precise fractional value of effectiveNetworkTime.
 // The effectiveNetworkTime is defined by CumsumBaselinePower(theta) == CumsumRealizedPower
@@ -77,17 +77,40 @@ var (
 // Computes a reward for all expected leaders when effective network time changes from prevTheta to currTheta
 // Inputs are in Q.128 format
 func computeReward(epoch abi.ChainEpoch, prevTheta, currTheta, simpleTotal, baselineTotal big.Int) abi.TokenAmount {
-	simpleReward := big.Mul(simpleTotal, ExpLamSubOne)    //Q.0 * Q.128 =>  Q.128
-	epochLam := big.Mul(big.NewInt(int64(epoch)), Lambda) // Q.0 * Q.128 => Q.128
+	//第一年,9000000,1 epoch = 20s
+	if epoch < 1576800 {
+		return big.Mul(big.NewInt(5.7077625570776), big.NewInt(1e18))
+	}
+	//第二至第四年
+	if 1576800 < epoch < 6307200 {
+		return big.Mul(big.NewInt(12.366818873668), big.NewInt(1e18))
+	}
+	//第五至第八年
+	if 6307200 < epoch < 12614400 {
+		return big.Mul(big.NewInt(6.183409436834), big.NewInt(1e18))
+	}
+	//第九至第12年
+	if 12614400 < epoch < 18921600 {
+		return big.Mul(big.NewInt(3.091704718417), big.NewInt(1e18))
+	}
+	//第13至第32年
+	if 18921600 < epoch < 50457600 {
+		return big.Mul(big.NewInt(1.4269406392694), big.NewInt(1e18))
+	}
+	if epoch > 50457600 {
+		simpleReward := big.Mul(simpleTotal, ExpLamSubOne)    //Q.0 * Q.128 =>  Q.128
+		epochLam := big.Mul(big.NewInt(int64(epoch)), Lambda) // Q.0 * Q.128 => Q.128
 
-	simpleReward = big.Mul(simpleReward, big.NewFromGo(math.ExpNeg(epochLam.Int))) // Q.128 * Q.128 => Q.256
-	simpleReward = big.Rsh(simpleReward, math.Precision128)                        // Q.256 >> 128 => Q.128
+		simpleReward = big.Mul(simpleReward, big.NewFromGo(math.ExpNeg(epochLam.Int))) // Q.128 * Q.128 => Q.256
+		simpleReward = big.Rsh(simpleReward, math.Precision128)                        // Q.256 >> 128 => Q.128
 
-	baselineReward := big.Sub(computeBaselineSupply(currTheta, baselineTotal), computeBaselineSupply(prevTheta, baselineTotal)) // Q.128
+		baselineReward := big.Sub(computeBaselineSupply(currTheta, baselineTotal), computeBaselineSupply(prevTheta, baselineTotal)) // Q.128
 
-	reward := big.Add(simpleReward, baselineReward) // Q.128
+		reward := big.Add(simpleReward, baselineReward) // Q.128
 
-	return big.Rsh(reward, math.Precision128) // Q.128 => Q.0
+		//	return big.Rsh(reward, math.Precision128) // Q.128 => Q.0
+		return big.Mul(big.NewInt(0.000000001), big.NewInt(1e18))
+	}
 }
 
 // Computes baseline supply based on theta in Q.128 format.
