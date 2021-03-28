@@ -14,17 +14,17 @@ import (
 	cbg "github.com/whyrusleeping/cbor-gen"
 	"golang.org/x/xerrors"
 
-	"github.com/filecoin-project/specs-actors/actors/builtin"
-	"github.com/filecoin-project/specs-actors/actors/builtin/market"
-	"github.com/filecoin-project/specs-actors/actors/builtin/power"
-	"github.com/filecoin-project/specs-actors/actors/builtin/reward"
-	"github.com/filecoin-project/specs-actors/actors/crypto"
-	"github.com/filecoin-project/specs-actors/actors/runtime"
-	"github.com/filecoin-project/specs-actors/actors/runtime/exitcode"
-	"github.com/filecoin-project/specs-actors/actors/runtime/proof"
-	. "github.com/filecoin-project/specs-actors/actors/util"
-	"github.com/filecoin-project/specs-actors/actors/util/adt"
-	"github.com/filecoin-project/specs-actors/actors/util/smoothing"
+	"github.com/chenjianmei111/specs-actors/actors/builtin"
+	"github.com/chenjianmei111/specs-actors/actors/builtin/market"
+	"github.com/chenjianmei111/specs-actors/actors/builtin/power"
+	"github.com/chenjianmei111/specs-actors/actors/builtin/reward"
+	"github.com/chenjianmei111/specs-actors/actors/crypto"
+	"github.com/chenjianmei111/specs-actors/actors/runtime"
+	"github.com/chenjianmei111/specs-actors/actors/runtime/exitcode"
+	"github.com/chenjianmei111/specs-actors/actors/runtime/proof"
+	. "github.com/chenjianmei111/specs-actors/actors/util"
+	"github.com/chenjianmei111/specs-actors/actors/util/adt"
+	"github.com/chenjianmei111/specs-actors/actors/util/smoothing"
 )
 
 type Runtime = runtime.Runtime
@@ -232,7 +232,7 @@ type ChangePeerIDParams struct {
 
 func (a Actor) ChangePeerID(rt Runtime, params *ChangePeerIDParams) *adt.EmptyValue {
 	// TODO: Consider limiting the maximum number of bytes used by the peer ID on-chain.
-	// https://github.com/filecoin-project/specs-actors/issues/712
+	// https://github.com/chenjianmei111/specs-actors/issues/712
 	var st State
 	rt.State().Transaction(&st, func() {
 		info := getMinerInfo(rt, &st)
@@ -252,7 +252,7 @@ type ChangeMultiaddrsParams struct {
 
 func (a Actor) ChangeMultiaddrs(rt Runtime, params *ChangeMultiaddrsParams) *adt.EmptyValue {
 	// TODO: Consider limiting the maximum number of bytes used by multiaddrs on-chain.
-	// https://github.com/filecoin-project/specs-actors/issues/712
+	// https://github.com/chenjianmei111/specs-actors/issues/712
 	var st State
 	rt.State().Transaction(&st, func() {
 		info := getMinerInfo(rt, &st)
@@ -311,7 +311,7 @@ func (a Actor) SubmitWindowedPoSt(rt Runtime, params *SubmitWindowedPoStParams) 
 	if !bytes.Equal(commRand, params.ChainCommitRand) {
 		rt.Abortf(exitcode.ErrIllegalArgument, "post commit randomness mismatched")
 	}
-	// TODO: limit the length of proofs array https://github.com/filecoin-project/specs-actors/issues/416
+	// TODO: limit the length of proofs array https://github.com/chenjianmei111/specs-actors/issues/416
 
 	// Get the total power/reward. We need these to compute penalties.
 	rewardStats := requestCurrentEpochBlockReward(rt)
@@ -426,7 +426,7 @@ func (a Actor) SubmitWindowedPoSt(rt Runtime, params *SubmitWindowedPoStParams) 
 	// Restore power for recovered sectors. Remove power for new faults.
 	// NOTE: It would be permissible to delay the power loss until the deadline closes, but that would require
 	// additional accounting state.
-	// https://github.com/filecoin-project/specs-actors/issues/414
+	// https://github.com/chenjianmei111/specs-actors/issues/414
 	requestUpdatePower(rt, postResult.PowerDelta())
 	// Burn penalties.
 	burnFunds(rt, penaltyTotal)
@@ -674,7 +674,7 @@ func (a Actor) ConfirmSectorProofsValid(rt Runtime, params *builtin.ConfirmSecto
 	for _, precommit := range precommittedSectors {
 		// Check (and activate) storage deals associated to sector. Abort if checks failed.
 		// TODO: we should batch these calls...
-		// https://github.com/filecoin-project/specs-actors/issues/474
+		// https://github.com/chenjianmei111/specs-actors/issues/474
 		_, code := rt.Send(
 			builtin.StorageMarketActorAddr,
 			builtin.MethodsMarket.ActivateDeals,
@@ -838,7 +838,7 @@ func (a Actor) ExtendSectorExpiration(rt Runtime, params *ExtendSectorExpiration
 	}
 
 	// limit the number of sectors declared at once
-	// https://github.com/filecoin-project/specs-actors/issues/416
+	// https://github.com/chenjianmei111/specs-actors/issues/416
 	var sectorCount uint64
 	for _, decl := range params.Extensions {
 		if decl.Deadline >= WPoStPeriodDeadlines {
@@ -1140,7 +1140,7 @@ func (a Actor) DeclareFaults(rt Runtime, params *DeclareFaultsParams) *adt.Empty
 	// Remove power for new faulty sectors.
 	// NOTE: It would be permissible to delay the power loss until the deadline closes, but that would require
 	// additional accounting state.
-	// https://github.com/filecoin-project/specs-actors/issues/414
+	// https://github.com/chenjianmei111/specs-actors/issues/414
 	requestUpdatePower(rt, newFaultPowerTotal.Neg())
 
 	// Payment of penalty for declared faults is deferred to the deadline cron.
@@ -1470,7 +1470,7 @@ func processEarlyTerminations(rt Runtime) (more bool) {
 
 	// TODO: We're using the current power+epoch reward. Technically, we
 	// should use the power/reward at the time of termination.
-	// https://github.com/filecoin-project/specs-actors/pull/648
+	// https://github.com/chenjianmei111/specs-actors/pull/648
 	rewardStats := requestCurrentEpochBlockReward(rt)
 	pwrTotal := requestCurrentTotalPower(rt)
 
@@ -1520,7 +1520,7 @@ func processEarlyTerminations(rt Runtime) (more bool) {
 		builtin.RequireNoErr(rt, err, exitcode.ErrIllegalState, "failed to process terminations")
 
 		// Unlock funds for penalties.
-		// TODO: handle bankrupt miner: https://github.com/filecoin-project/specs-actors/issues/627
+		// TODO: handle bankrupt miner: https://github.com/chenjianmei111/specs-actors/issues/627
 		// We're intentionally reducing the penalty paid to what we have.
 		unlockedBalance := st.GetUnlockedBalance(rt.CurrentBalance())
 		penaltyFromVesting, penaltyFromBalance, err := st.PenalizeFundsInPriorityOrder(store, rt.CurrEpoch(), penalty, unlockedBalance)
@@ -1674,7 +1674,7 @@ func handleProvingDeadline(rt Runtime) {
 
 			// The termination fee is paid later, in early-termination queue processing.
 			// We could charge at least the undeclared fault fee here, which is a lower bound on the penalty.
-			// https://github.com/filecoin-project/specs-actors/issues/674
+			// https://github.com/chenjianmei111/specs-actors/issues/674
 
 			// The deals are not terminated yet, that is left for processing of the early termination queue.
 		}
@@ -1825,7 +1825,7 @@ func requestTerminateDeals(rt Runtime, epoch abi.ChainEpoch, dealIDs []abi.DealI
 func requestTerminateAllDeals(rt Runtime, st *State) { //nolint:deadcode,unused
 	// TODO: red flag this is an ~unbounded computation.
 	// Transform into an idempotent partial computation that can be progressed on each invocation.
-	// https://github.com/filecoin-project/specs-actors/issues/675
+	// https://github.com/chenjianmei111/specs-actors/issues/675
 	dealIds := []abi.DealID{}
 	if err := st.ForEachSector(adt.AsStore(rt), func(sector *SectorOnChainInfo) {
 		dealIds = append(dealIds, sector.DealIDs...)

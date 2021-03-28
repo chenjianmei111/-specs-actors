@@ -8,9 +8,9 @@ import (
 	"github.com/minio/blake2b-simd"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/filecoin-project/specs-actors/actors/builtin"
-	"github.com/filecoin-project/specs-actors/actors/util/smoothing"
-	tutils "github.com/filecoin-project/specs-actors/support/testing"
+	"github.com/chenjianmei111/specs-actors/actors/builtin"
+	"github.com/chenjianmei111/specs-actors/actors/util/smoothing"
+	tutils "github.com/chenjianmei111/specs-actors/support/testing"
 )
 
 func TestAssignProvingPeriodBoundary(t *testing.T) {

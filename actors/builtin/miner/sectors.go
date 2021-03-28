@@ -8,8 +8,8 @@ import (
 	"github.com/ipfs/go-cid"
 	"golang.org/x/xerrors"
 
-	xc "github.com/filecoin-project/specs-actors/actors/runtime/exitcode"
-	"github.com/filecoin-project/specs-actors/actors/util/adt"
+	xc "github.com/chenjianmei111/specs-actors/actors/runtime/exitcode"
+	"github.com/chenjianmei111/specs-actors/actors/util/adt"
 )
 
 func LoadSectors(store adt.Store, root cid.Cid) (Sectors, error) {

@@ -13,10 +13,10 @@ import (
 	errors "github.com/pkg/errors"
 	xerrors "golang.org/x/xerrors"
 
-	"github.com/filecoin-project/specs-actors/actors/builtin"
-	xc "github.com/filecoin-project/specs-actors/actors/runtime/exitcode"
-	. "github.com/filecoin-project/specs-actors/actors/util"
-	"github.com/filecoin-project/specs-actors/actors/util/adt"
+	"github.com/chenjianmei111/specs-actors/actors/builtin"
+	xc "github.com/chenjianmei111/specs-actors/actors/runtime/exitcode"
+	. "github.com/chenjianmei111/specs-actors/actors/util"
+	"github.com/chenjianmei111/specs-actors/actors/util/adt"
 )
 
 // Balance of Miner Actor should be greater than or equal to
@@ -814,7 +814,7 @@ func (st *State) AddLockedFunds(store adt.Store, currEpoch abi.ChainEpoch, vesti
 // Returns the amount unlocked from the vesting table and the amount taken from current balance.
 // If the penalty exceeds the total amount available in the vesting table and unlocked funds
 // the penalty is reduced to match.  This must be fixed when handling bankrupcy:
-// https://github.com/filecoin-project/specs-actors/issues/627
+// https://github.com/chenjianmei111/specs-actors/issues/627
 func (st *State) PenalizeFundsInPriorityOrder(store adt.Store, currEpoch abi.ChainEpoch, target, unlockedBalance abi.TokenAmount) (fromVesting abi.TokenAmount, fromBalance abi.TokenAmount, err error) {
 	fromVesting, err = st.UnlockUnvestedFunds(store, currEpoch, target)
 	if err != nil {

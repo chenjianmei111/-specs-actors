@@ -3,8 +3,8 @@ package miner_test
 import (
 	"testing"
 
-	"github.com/filecoin-project/specs-actors/actors/builtin/miner"
-	"github.com/filecoin-project/specs-actors/actors/util/adt"
+	"github.com/chenjianmei111/specs-actors/actors/builtin/miner"
+	"github.com/chenjianmei111/specs-actors/actors/util/adt"
 	"github.com/stretchr/testify/require"
 )
 

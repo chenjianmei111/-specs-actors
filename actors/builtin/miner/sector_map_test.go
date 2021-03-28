@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/filecoin-project/go-bitfield"
-	"github.com/filecoin-project/specs-actors/actors/builtin/miner"
+	"github.com/chenjianmei111/specs-actors/actors/builtin/miner"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

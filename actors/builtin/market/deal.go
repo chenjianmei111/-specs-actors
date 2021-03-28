@@ -9,7 +9,7 @@ import (
 	cid "github.com/ipfs/go-cid"
 	mh "github.com/multiformats/go-multihash"
 
-	acrypto "github.com/filecoin-project/specs-actors/actors/crypto"
+	acrypto "github.com/chenjianmei111/specs-actors/actors/crypto"
 )
 
 var PieceCIDPrefix = cid.Prefix{
