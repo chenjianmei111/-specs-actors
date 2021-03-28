@@ -11,9 +11,9 @@ import (
 	cid "github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
 
-	miner "github.com/filecoin-project/specs-actors/actors/builtin/miner"
-	power0 "github.com/filecoin-project/specs-actors/actors/builtin/power"
-	"github.com/filecoin-project/specs-actors/actors/util/adt"
+	miner "github.com/chenjianmei111/specs-actors/actors/builtin/miner"
+	power0 "github.com/chenjianmei111/specs-actors/actors/builtin/power"
+	"github.com/chenjianmei111/specs-actors/actors/util/adt"
 )
 
 func (m *minerMigrator) CorrectState(ctx context.Context, store cbor.IpldStore, head cid.Cid,

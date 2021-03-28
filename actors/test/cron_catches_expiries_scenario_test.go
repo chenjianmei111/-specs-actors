@@ -10,13 +10,13 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/specs-actors/v2/actors/builtin"
-	"github.com/filecoin-project/specs-actors/v2/actors/builtin/miner"
-	"github.com/filecoin-project/specs-actors/v2/actors/builtin/power"
-	"github.com/filecoin-project/specs-actors/v2/actors/runtime/proof"
-	"github.com/filecoin-project/specs-actors/v2/support/ipld"
-	tutil "github.com/filecoin-project/specs-actors/v2/support/testing"
-	vm "github.com/filecoin-project/specs-actors/v2/support/vm"
+	"github.com/chenjianmei111/specs-actors/v2/actors/builtin"
+	"github.com/chenjianmei111/specs-actors/v2/actors/builtin/miner"
+	"github.com/chenjianmei111/specs-actors/v2/actors/builtin/power"
+	"github.com/chenjianmei111/specs-actors/v2/actors/runtime/proof"
+	"github.com/chenjianmei111/specs-actors/v2/support/ipld"
+	tutil "github.com/chenjianmei111/specs-actors/v2/support/testing"
+	vm "github.com/chenjianmei111/specs-actors/v2/support/vm"
 )
 
 var fakeChainRandomness = []byte("not really random")

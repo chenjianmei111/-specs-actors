@@ -5,12 +5,12 @@ import (
 
 	addr "github.com/filecoin-project/go-address"
 	"github.com/filecoin-project/go-state-types/big"
-	multisig0 "github.com/filecoin-project/specs-actors/actors/builtin/multisig"
+	multisig0 "github.com/chenjianmei111/specs-actors/actors/builtin/multisig"
 	cid "github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
 	"golang.org/x/xerrors"
 
-	multisig2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/multisig"
+	multisig2 "github.com/chenjianmei111/specs-actors/v2/actors/builtin/multisig"
 )
 
 type multisigMigrator struct {

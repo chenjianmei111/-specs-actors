@@ -5,14 +5,14 @@ import (
 
 	"github.com/filecoin-project/go-bitfield"
 	"github.com/filecoin-project/go-state-types/big"
-	miner0 "github.com/filecoin-project/specs-actors/actors/builtin/miner"
-	adt0 "github.com/filecoin-project/specs-actors/actors/util/adt"
+	miner0 "github.com/chenjianmei111/specs-actors/actors/builtin/miner"
+	adt0 "github.com/chenjianmei111/specs-actors/actors/util/adt"
 	cid "github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
 	"golang.org/x/xerrors"
 
-	miner2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/miner"
-	adt2 "github.com/filecoin-project/specs-actors/v2/actors/util/adt"
+	miner2 "github.com/chenjianmei111/specs-actors/v2/actors/builtin/miner"
+	adt2 "github.com/chenjianmei111/specs-actors/v2/actors/util/adt"
 )
 
 type minerMigrator struct {

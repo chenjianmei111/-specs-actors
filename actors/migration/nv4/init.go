@@ -4,12 +4,12 @@ import (
 	"context"
 
 	"github.com/filecoin-project/go-state-types/big"
-	init0 "github.com/filecoin-project/specs-actors/actors/builtin/init"
+	init0 "github.com/chenjianmei111/specs-actors/actors/builtin/init"
 	cid "github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
 	"golang.org/x/xerrors"
 
-	init2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/init"
+	init2 "github.com/chenjianmei111/specs-actors/v2/actors/builtin/init"
 )
 
 type initMigrator struct {

@@ -12,11 +12,11 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/specs-actors/v2/actors/builtin"
-	init_ "github.com/filecoin-project/specs-actors/v2/actors/builtin/init"
-	"github.com/filecoin-project/specs-actors/v2/actors/builtin/multisig"
-	"github.com/filecoin-project/specs-actors/v2/support/ipld"
-	vm "github.com/filecoin-project/specs-actors/v2/support/vm"
+	"github.com/chenjianmei111/specs-actors/v2/actors/builtin"
+	init_ "github.com/chenjianmei111/specs-actors/v2/actors/builtin/init"
+	"github.com/chenjianmei111/specs-actors/v2/actors/builtin/multisig"
+	"github.com/chenjianmei111/specs-actors/v2/support/ipld"
+	vm "github.com/chenjianmei111/specs-actors/v2/support/vm"
 )
 
 func TestV5MultisigDeleteSigner1Of2(t *testing.T) {

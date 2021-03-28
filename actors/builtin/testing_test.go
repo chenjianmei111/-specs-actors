@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/filecoin-project/specs-actors/v2/actors/builtin"
+	"github.com/chenjianmei111/specs-actors/v2/actors/builtin"
 )
 
 func TestMessageAccumulator(t *testing.T) {

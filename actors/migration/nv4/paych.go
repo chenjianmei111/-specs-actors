@@ -5,12 +5,12 @@ import (
 
 	addr "github.com/filecoin-project/go-address"
 	"github.com/filecoin-project/go-state-types/big"
-	paych0 "github.com/filecoin-project/specs-actors/actors/builtin/paych"
+	paych0 "github.com/chenjianmei111/specs-actors/actors/builtin/paych"
 	cid "github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
 	"golang.org/x/xerrors"
 
-	paych2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/paych"
+	paych2 "github.com/chenjianmei111/specs-actors/v2/actors/builtin/paych"
 )
 
 type paychMigrator struct {

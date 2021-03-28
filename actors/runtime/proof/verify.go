@@ -1,7 +1,7 @@
 package proof
 
 import (
-	proof0 "github.com/filecoin-project/specs-actors/actors/runtime/proof"
+	proof0 "github.com/chenjianmei111/specs-actors/actors/runtime/proof"
 )
 
 ///

@@ -14,10 +14,10 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/specs-actors/v2/actors/builtin"
-	"github.com/filecoin-project/specs-actors/v2/actors/builtin/miner"
-	"github.com/filecoin-project/specs-actors/v2/actors/util/adt"
-	"github.com/filecoin-project/specs-actors/v2/support/ipld"
+	"github.com/chenjianmei111/specs-actors/v2/actors/builtin"
+	"github.com/chenjianmei111/specs-actors/v2/actors/builtin/miner"
+	"github.com/chenjianmei111/specs-actors/v2/actors/util/adt"
+	"github.com/chenjianmei111/specs-actors/v2/support/ipld"
 )
 
 func TestPartitions(t *testing.T) {

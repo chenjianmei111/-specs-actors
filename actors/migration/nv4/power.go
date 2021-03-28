@@ -6,17 +6,17 @@ import (
 	address "github.com/filecoin-project/go-address"
 	"github.com/filecoin-project/go-state-types/abi"
 	"github.com/filecoin-project/go-state-types/big"
-	miner0 "github.com/filecoin-project/specs-actors/actors/builtin/miner"
-	power0 "github.com/filecoin-project/specs-actors/actors/builtin/power"
-	states0 "github.com/filecoin-project/specs-actors/actors/states"
-	adt0 "github.com/filecoin-project/specs-actors/actors/util/adt"
+	miner0 "github.com/chenjianmei111/specs-actors/actors/builtin/miner"
+	power0 "github.com/chenjianmei111/specs-actors/actors/builtin/power"
+	states0 "github.com/chenjianmei111/specs-actors/actors/states"
+	adt0 "github.com/chenjianmei111/specs-actors/actors/util/adt"
 	cid "github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
 	"golang.org/x/xerrors"
 
-	power2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/power"
-	adt2 "github.com/filecoin-project/specs-actors/v2/actors/util/adt"
-	smoothing2 "github.com/filecoin-project/specs-actors/v2/actors/util/smoothing"
+	power2 "github.com/chenjianmei111/specs-actors/v2/actors/builtin/power"
+	adt2 "github.com/chenjianmei111/specs-actors/v2/actors/util/adt"
+	smoothing2 "github.com/chenjianmei111/specs-actors/v2/actors/util/smoothing"
 )
 
 type powerMigrator struct {
