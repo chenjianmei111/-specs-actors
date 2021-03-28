@@ -111,10 +111,10 @@ func computeReward(epoch abi.ChainEpoch, prevTheta, currTheta, simpleTotal, base
 		reward := big.Add(simpleReward, baselineReward) // Q.128
 		fmt.Printf("reward = %d ", reward)
 
-		return big.Mul(big.NewInt(14269406392694), big.NewInt(1e5))
+		return big.Mul(big.NewInt(1), big.NewInt(1e8))
 		//	return big.Rsh(reward, math.Precision128) // Q.128 => Q.0
 	}
-	return big.Mul(big.NewInt(14269406392694), big.NewInt(1e5))
+	return big.Mul(big.NewInt(1), big.NewInt(1e8))
 }
 
 // Computes baseline supply based on theta in Q.128 format.
