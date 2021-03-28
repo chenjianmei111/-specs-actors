@@ -10,12 +10,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/specs-actors/actors/abi"
-	"github.com/filecoin-project/specs-actors/actors/abi/big"
-	"github.com/filecoin-project/specs-actors/actors/builtin/miner"
-	"github.com/filecoin-project/specs-actors/actors/util/adt"
-	"github.com/filecoin-project/specs-actors/support/ipld"
-	tutils "github.com/filecoin-project/specs-actors/support/testing"
+	"github.com/chenjianmei111/specs-actors/actors/abi"
+	"github.com/chenjianmei111/specs-actors/actors/abi/big"
+	"github.com/chenjianmei111/specs-actors/actors/builtin/miner"
+	"github.com/chenjianmei111/specs-actors/actors/util/adt"
+	"github.com/chenjianmei111/specs-actors/support/ipld"
+	tutils "github.com/chenjianmei111/specs-actors/support/testing"
 )
 
 func TestPrecommittedSectorsStore(t *testing.T) {
@@ -162,7 +162,7 @@ func TestNewSectorsBitField(t *testing.T) {
 		assert.Error(t, err)
 
 		// sanity check nothing was added
-		// For omission reason see: https://github.com/filecoin-project/specs-actors/issues/300
+		// For omission reason see: https://github.com/chenjianmei111/specs-actors/issues/300
 		//assert.Equal(t, uint64(0), actorHarness.getNewSectorCount())
 	})
 }

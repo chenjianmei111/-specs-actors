@@ -3,7 +3,7 @@ package reward
 import (
 	"testing"
 
-	"github.com/filecoin-project/specs-actors/actors/abi/big"
+	"github.com/chenjianmei111/specs-actors/actors/abi/big"
 )
 
 // Minting function test vectors

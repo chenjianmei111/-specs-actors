@@ -1,10 +1,10 @@
 package reward
 
 import (
-	abi "github.com/filecoin-project/specs-actors/actors/abi"
-	big "github.com/filecoin-project/specs-actors/actors/abi/big"
-	builtin "github.com/filecoin-project/specs-actors/actors/builtin"
-	adt "github.com/filecoin-project/specs-actors/actors/util/adt"
+	abi "github.com/chenjianmei111/specs-actors/actors/abi"
+	big "github.com/chenjianmei111/specs-actors/actors/abi/big"
+	builtin "github.com/chenjianmei111/specs-actors/actors/builtin"
+	adt "github.com/chenjianmei111/specs-actors/actors/util/adt"
 )
 
 // Fractional representation of NetworkTime with an implicit denominator of (2^MintingInputFixedPoint).

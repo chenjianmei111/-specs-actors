@@ -5,14 +5,14 @@ import (
 
 	cbg "github.com/whyrusleeping/cbor-gen"
 
-	abi "github.com/filecoin-project/specs-actors/actors/abi"
-	big "github.com/filecoin-project/specs-actors/actors/abi/big"
-	builtin "github.com/filecoin-project/specs-actors/actors/builtin"
-	verifreg "github.com/filecoin-project/specs-actors/actors/builtin/verifreg"
-	vmr "github.com/filecoin-project/specs-actors/actors/runtime"
-	exitcode "github.com/filecoin-project/specs-actors/actors/runtime/exitcode"
-	. "github.com/filecoin-project/specs-actors/actors/util"
-	"github.com/filecoin-project/specs-actors/actors/util/adt"
+	abi "github.com/chenjianmei111/specs-actors/actors/abi"
+	big "github.com/chenjianmei111/specs-actors/actors/abi/big"
+	builtin "github.com/chenjianmei111/specs-actors/actors/builtin"
+	verifreg "github.com/chenjianmei111/specs-actors/actors/builtin/verifreg"
+	vmr "github.com/chenjianmei111/specs-actors/actors/runtime"
+	exitcode "github.com/chenjianmei111/specs-actors/actors/runtime/exitcode"
+	. "github.com/chenjianmei111/specs-actors/actors/util"
+	"github.com/chenjianmei111/specs-actors/actors/util/adt"
 )
 
 type Actor struct{}
@@ -402,7 +402,7 @@ func (a Actor) OnMinerSectorsTerminate(rt Runtime, params *OnMinerSectorsTermina
 
 			// Note: we do not perform the balance transfers here, but rather simply record the flag
 			// to indicate that processDealSlashed should be called when the deferred state computation
-			// is performed. // TODO: Do that here. https://github.com/filecoin-project/specs-actors/issues/462
+			// is performed. // TODO: Do that here. https://github.com/chenjianmei111/specs-actors/issues/462
 
 			state.SlashEpoch = rt.CurrEpoch()
 
@@ -486,7 +486,7 @@ func (a Actor) CronTick(rt Runtime, params *adt.EmptyValue) *adt.EmptyValue {
 					Assert(nextEpoch > rt.CurrEpoch())
 
 					// TODO: can we avoid having this field?
-					// https://github.com/filecoin-project/specs-actors/issues/463
+					// https://github.com/chenjianmei111/specs-actors/issues/463
 					state.LastUpdatedEpoch = rt.CurrEpoch()
 
 					if err := states.Set(dealID, state); err != nil {

@@ -3,8 +3,8 @@ package paych
 import (
 	addr "github.com/filecoin-project/go-address"
 
-	abi "github.com/filecoin-project/specs-actors/actors/abi"
-	big "github.com/filecoin-project/specs-actors/actors/abi/big"
+	abi "github.com/chenjianmei111/specs-actors/actors/abi"
+	big "github.com/chenjianmei111/specs-actors/actors/abi/big"
 )
 
 // A given payment channel actor is established by From
