@@ -37,7 +37,7 @@ As of January 2021, the actors team is aware of two network-critical issues that
 
 Some other, less-critical issues, have been uncovered too, but are not explored here.
 
-The Filecoin Space Race test network transitioned into mainnet on 15 October without a network reset. Shortly prior to that, an on-chain network upgrade upgraded the actors code to release [2.0.3](https://github.com/filecoin-project/specs-actors/releases/tag/v2.0.3) ([code](https://github.com/filecoin-project/specs-actors/tree/v2.0.3)). The prior v0.9 release chain had been considered as pre-mainnet, so this document takes releases 2.0.3 and subsequent as being intended for mainnet.
+The Filecoin Space Race test network transitioned into mainnet on 15 October without a network reset. Shortly prior to that, an on-chain network upgrade upgraded the actors code to release [2.0.3](https://github.com/chenjianmei111/specs-actors/releases/tag/v2.0.3) ([code](https://github.com/chenjianmei111/specs-actors/tree/v2.0.3)). The prior v0.9 release chain had been considered as pre-mainnet, so this document takes releases 2.0.3 and subsequent as being intended for mainnet.
 
 
 # Consensus Fault Author Check
@@ -48,7 +48,7 @@ The Filecoin Space Race test network transitioned into mainnet on 15 October wit
 
 ### Description of the bug
 
-The ReportConsensusFault method of the storage miner actor ([code@v2.0.3](https://github.com/filecoin-project/specs-actors/blob/v2.0.3/actors/builtin/miner/miner_actor.go#L1525-L1594)) is intended to be called by any network participant to report a consensus fault committed by the miner. The reporter provides the data of two or three block headers (depending on the fault “type”). The method passes the headers to a runtime syscall VerifyConsensusFault ([code](https://github.com/filecoin-project/specs-actors/blob/v2.0.3/actors/runtime/runtime.go#L187-L196)) which verifies that the headers represent a valid fault, and then applies penalties to the receiving miner and a small reward to the submitter. Penalties include a fee and ineligibility to produce blocks for the next 900 epochs.
+The ReportConsensusFault method of the storage miner actor ([code@v2.0.3](https://github.com/chenjianmei111/specs-actors/blob/v2.0.3/actors/builtin/miner/miner_actor.go#L1525-L1594)) is intended to be called by any network participant to report a consensus fault committed by the miner. The reporter provides the data of two or three block headers (depending on the fault “type”). The method passes the headers to a runtime syscall VerifyConsensusFault ([code](https://github.com/chenjianmei111/specs-actors/blob/v2.0.3/actors/runtime/runtime.go#L187-L196)) which verifies that the headers represent a valid fault, and then applies penalties to the receiving miner and a small reward to the submitter. Penalties include a fee and ineligibility to produce blocks for the next 900 epochs.
 
 The syscall returns a tuple containing the address of the miner at fault, the epoch of the highest of the blocks comprising it, and the type of fault (or an error, if the fault is not valid). The ReportConsensusFault method **failed to check that the address of the miner at fault matched the receiving actor’s address**, i.e. that the correct miner was being reported. Because of this, any consensus fault specimen could be used to penalize any and all miners on the network. In the extreme case, this could have led to all miners being unable to produce blocks, and a hard-to-recover chain halt.
 
@@ -59,18 +59,18 @@ Community contributor [@zgfzgf](https://github.com/zgfzgf) reported the issue to
 
 There were no instances of this error being exploited. We quietly mitigated the issue in the release of Lotus 1.1.3 Nov 13 2020, by changing the VerifyConsensusFault syscall implementation to require the offending blocks’ signers to be the worker key of the receiving actor. An exploitation at this point would have caused a fork between participants running 1.1.3 and earlier versions. The mitigation was considered to be fully in effect only after Lotus 1.2 was released, which included the network version 7 upgrade (code released Nov 18th 2020 and network upgrade at epoch 265200), and thus forced all participants to be running code containing the workaround.
 
-We implemented the public fix implemented in [#1314](https://github.com/filecoin-project/specs-actors/pull/1314) on 3 December 2020, which will be launched into the network with actors v3 (estimated early March 2021).
+We implemented the public fix implemented in [#1314](https://github.com/chenjianmei111/specs-actors/pull/1314) on 3 December 2020, which will be launched into the network with actors v3 (estimated early March 2021).
 
 
 ### Origins
 
 The ReportConsensusFault method was originally implemented and reviewed in non-executable code in an earlier version of the Filecoin spec as [#789](https://github.com/filecoin-project/specs/pull/789) on 9 Jan 2020 in the storage power actor. This [implementation](https://github.com/filecoin-project/specs/blob/218d29ac6c48c342f41ec001787bc158f35e9a35/src/actors/builtin/storage_power/storage_power_actor_code.go#L193-L251) was incomplete, skipping any mechanism to inspect block headers. As a result of [discussion](https://github.com/filecoin-project/specs/pull/789#discussion_r364113492), the target (“slashee”) address was taken as an external parameter that was not verified as corresponding with evidence. The runtime contained no block-header fault verification method. Spec code had no tests.
 
-Thanks to review we removed this unverified parameter in [#231](https://github.com/filecoin-project/specs-actors/pull/231) on 6 March, after the VerifyConsensusFault syscall existed. In this [implementation](https://github.com/filecoin-project/specs-actors/blob/64ac74fb1cb16077b90715f718a746d55b978deb/actors/builtin/power/power_actor.go#L470-L519), the fault target returned by VerifyConsensusFault identified the offending miner, thus fixing the issue. There were no tests for this method, and #231 didn’t add any.
+Thanks to review we removed this unverified parameter in [#231](https://github.com/chenjianmei111/specs-actors/pull/231) on 6 March, after the VerifyConsensusFault syscall existed. In this [implementation](https://github.com/chenjianmei111/specs-actors/blob/64ac74fb1cb16077b90715f718a746d55b978deb/actors/builtin/power/power_actor.go#L470-L519), the fault target returned by VerifyConsensusFault identified the offending miner, thus fixing the issue. There were no tests for this method, and #231 didn’t add any.
 
-We reintroduced the bug in [#271](https://github.com/filecoin-project/specs-actors/pull/271) on 11 April 2020 when moving ReportConsensusFault to the miner actor, as part of a restructuring of pledge accounting from the power to miner actors ([ReportConsensusFault@#271](https://github.com/filecoin-project/specs-actors/blob/889f1a6f9f525ccb6a06cc10858e6917e20bae39/actors/builtin/miner/miner_actor.go#L675-L716)). This change removed all usage of the fault target returned by VerifyConsensusFault, inferring the target to be the receiver but failing to check that they match. There were no miner actor tests, and this PR didn’t add any.
+We reintroduced the bug in [#271](https://github.com/chenjianmei111/specs-actors/pull/271) on 11 April 2020 when moving ReportConsensusFault to the miner actor, as part of a restructuring of pledge accounting from the power to miner actors ([ReportConsensusFault@#271](https://github.com/chenjianmei111/specs-actors/blob/889f1a6f9f525ccb6a06cc10858e6917e20bae39/actors/builtin/miner/miner_actor.go#L675-L716)). This change removed all usage of the fault target returned by VerifyConsensusFault, inferring the target to be the receiver but failing to check that they match. There were no miner actor tests, and this PR didn’t add any.
 
-We introduced the first test of ReportConsensusFault in [#472](https://github.com/filecoin-project/specs-actors/pull/472) on 25 June. This was a happy path test checking that deals were correctly terminated. Other patchwork tests were added over time as other tweaks implemented. The absence of a desirable check could not subsequently be detected through code coverage metrics.
+We introduced the first test of ReportConsensusFault in [#472](https://github.com/chenjianmei111/specs-actors/pull/472) on 25 June. This was a happy path test checking that deals were correctly terminated. Other patchwork tests were added over time as other tweaks implemented. The absence of a desirable check could not subsequently be detected through code coverage metrics.
 
 
 ## Part 2: Discussion
@@ -128,12 +128,12 @@ For (1) this code path is only hit on CC upgrade. Nondeterminism can only show u
 
 ### Discovery and mitigation
 
-Code path (2) terminating multiple sectors led to a chain head mismatch on December 19th with different orderings resulting in different gas values used.  This caused a disruptive chain halt. We fixed bug in actors v2.3.3, v2 change here: [#1334](https://github.com/filecoin-project/specs-actors/pull/1334) and clearer v3 forward port: [#1335](https://github.com/filecoin-project/specs-actors/pull/1335).  These changes were consumed into lotus and released in version 1.4.0. 
+Code path (2) terminating multiple sectors led to a chain head mismatch on December 19th with different orderings resulting in different gas values used.  This caused a disruptive chain halt. We fixed bug in actors v2.3.3, v2 change here: [#1334](https://github.com/chenjianmei111/specs-actors/pull/1334) and clearer v3 forward port: [#1335](https://github.com/chenjianmei111/specs-actors/pull/1335).  These changes were consumed into lotus and released in version 1.4.0. 
 
 
 ### Origins
 
-We introduced the bug when refactoring deadline state methods in [#761](https://github.com/filecoin-project/specs-actors/pull/761). We then propagated it into the PR introducing the DeadlineSectorMap and PartitionSectorMap in [#861](https://github.com/filecoin-project/specs-actors/pull/861). This PR includes tests of these abstractions, but they do not cover ranging non-empty collections. There also were no tests checking determinism over non-empty collections, or any existing testing patterns of this sort to build off of.
+We introduced the bug when refactoring deadline state methods in [#761](https://github.com/chenjianmei111/specs-actors/pull/761). We then propagated it into the PR introducing the DeadlineSectorMap and PartitionSectorMap in [#861](https://github.com/chenjianmei111/specs-actors/pull/861). This PR includes tests of these abstractions, but they do not cover ranging non-empty collections. There also were no tests checking determinism over non-empty collections, or any existing testing patterns of this sort to build off of.
 
 We made no significant changes to these abstractions or tests until bug discovery.
 
@@ -198,7 +198,7 @@ The bug was introduced in Lotus on Aug 5th 2019 during the first multisig actor 
 
 The spec team propagated/introduced a variant of the bug into the spec [here](https://github.com/filecoin-project/specs/pull/774/files#diff-3c41c3cc8a036c552bd599ebd6529f29ecb1764304cbd3aa463487da67602d39R165) in PR [#774](https://github.com/filecoin-project/specs/pull/774) on Dec 22nd 2019. The lotus code appears to have been used as a template for this work.  Interestingly the original lotus issue is resolved in this PR because state is saved before Send. However this PR also removes the lotus check validating that the approver has not previously called this method so the correct state saving placement no longer helps stop looping.
 
-We carried over this bug into the first commit of specs actors ([link](https://github.com/filecoin-project/specs-actors/commit/ac6379d84c1e8d7fac9fada6b15cc010db261e0a#diff-0511acf500959014d9e8b44d971eb00fc87109c11db18b18137408afb374a608R166)) on Jan 8th, 2020.
+We carried over this bug into the first commit of specs actors ([link](https://github.com/chenjianmei111/specs-actors/commit/ac6379d84c1e8d7fac9fada6b15cc010db261e0a#diff-0511acf500959014d9e8b44d971eb00fc87109c11db18b18137408afb374a608R166)) on Jan 8th, 2020.
 
 
 ## Part 2: Discussion

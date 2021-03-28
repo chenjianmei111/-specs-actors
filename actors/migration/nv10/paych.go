@@ -3,12 +3,12 @@ package nv10
 import (
 	"context"
 
-	paych2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/paych"
+	paych2 "github.com/chenjianmei111/specs-actors/v2/actors/builtin/paych"
 	cid "github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
 
-	builtin3 "github.com/filecoin-project/specs-actors/v3/actors/builtin"
-	paych3 "github.com/filecoin-project/specs-actors/v3/actors/builtin/paych"
+	builtin3 "github.com/chenjianmei111/specs-actors/v3/actors/builtin"
+	paych3 "github.com/chenjianmei111/specs-actors/v3/actors/builtin/paych"
 )
 
 type paychMigrator struct{}

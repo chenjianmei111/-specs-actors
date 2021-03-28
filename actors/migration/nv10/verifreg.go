@@ -3,12 +3,12 @@ package nv10
 import (
 	"context"
 
-	verifreg2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/verifreg"
+	verifreg2 "github.com/chenjianmei111/specs-actors/v2/actors/builtin/verifreg"
 	cid "github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
 
-	builtin3 "github.com/filecoin-project/specs-actors/v3/actors/builtin"
-	verifreg3 "github.com/filecoin-project/specs-actors/v3/actors/builtin/verifreg"
+	builtin3 "github.com/chenjianmei111/specs-actors/v3/actors/builtin"
+	verifreg3 "github.com/chenjianmei111/specs-actors/v3/actors/builtin/verifreg"
 )
 
 type verifregMigrator struct{}

@@ -8,12 +8,12 @@ import (
 	cbor "github.com/ipfs/go-ipld-cbor"
 	"golang.org/x/xerrors"
 
-	miner2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/miner"
-	adt2 "github.com/filecoin-project/specs-actors/v2/actors/util/adt"
+	miner2 "github.com/chenjianmei111/specs-actors/v2/actors/builtin/miner"
+	adt2 "github.com/chenjianmei111/specs-actors/v2/actors/util/adt"
 
-	builtin3 "github.com/filecoin-project/specs-actors/v3/actors/builtin"
-	miner3 "github.com/filecoin-project/specs-actors/v3/actors/builtin/miner"
-	adt3 "github.com/filecoin-project/specs-actors/v3/actors/util/adt"
+	builtin3 "github.com/chenjianmei111/specs-actors/v3/actors/builtin"
+	miner3 "github.com/chenjianmei111/specs-actors/v3/actors/builtin/miner"
+	adt3 "github.com/chenjianmei111/specs-actors/v3/actors/util/adt"
 )
 
 type minerMigrator struct{}
@@ -165,7 +165,7 @@ func (m *minerMigrator) migrateDeadlines(ctx context.Context, store cbor.IpldSto
 			// 3. The end of deadline logic is skipped because there are no live sectors.
 			// This bug has been fixed in actors v3 (no terminations allowed during the
 			// challenge window) but the state still needs to be fixed.
-			// See: https://github.com/filecoin-project/specs-actors/issues/1348
+			// See: https://github.com/chenjianmei111/specs-actors/issues/1348
 			if outDeadline.LiveSectors == 0 {
 				outDeadline.PartitionsPoSted = bitfield.New()
 			}

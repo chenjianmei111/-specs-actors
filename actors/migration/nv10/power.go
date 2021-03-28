@@ -3,15 +3,15 @@ package nv10
 import (
 	"context"
 
-	adt2 "github.com/filecoin-project/specs-actors/actors/util/adt"
-	power2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/power"
+	adt2 "github.com/chenjianmei111/specs-actors/actors/util/adt"
+	power2 "github.com/chenjianmei111/specs-actors/v2/actors/builtin/power"
 	cid "github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
 
-	builtin3 "github.com/filecoin-project/specs-actors/v3/actors/builtin"
-	power3 "github.com/filecoin-project/specs-actors/v3/actors/builtin/power"
-	adt3 "github.com/filecoin-project/specs-actors/v3/actors/util/adt"
-	smoothing3 "github.com/filecoin-project/specs-actors/v3/actors/util/smoothing"
+	builtin3 "github.com/chenjianmei111/specs-actors/v3/actors/builtin"
+	power3 "github.com/chenjianmei111/specs-actors/v3/actors/builtin/power"
+	adt3 "github.com/chenjianmei111/specs-actors/v3/actors/util/adt"
+	smoothing3 "github.com/chenjianmei111/specs-actors/v3/actors/util/smoothing"
 )
 
 type powerMigrator struct{}

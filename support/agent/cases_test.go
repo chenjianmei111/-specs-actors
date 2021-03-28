@@ -13,12 +13,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/specs-actors/v3/actors/builtin"
-	"github.com/filecoin-project/specs-actors/v3/actors/builtin/power"
-	"github.com/filecoin-project/specs-actors/v3/actors/states"
-	"github.com/filecoin-project/specs-actors/v3/support/agent"
-	"github.com/filecoin-project/specs-actors/v3/support/ipld"
-	vm_test "github.com/filecoin-project/specs-actors/v3/support/vm"
+	"github.com/chenjianmei111/specs-actors/v3/actors/builtin"
+	"github.com/chenjianmei111/specs-actors/v3/actors/builtin/power"
+	"github.com/chenjianmei111/specs-actors/v3/actors/states"
+	"github.com/chenjianmei111/specs-actors/v3/support/agent"
+	"github.com/chenjianmei111/specs-actors/v3/support/ipld"
+	vm_test "github.com/chenjianmei111/specs-actors/v3/support/vm"
 )
 
 func TestCreate20Miners(t *testing.T) {

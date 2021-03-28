@@ -1,8 +1,10 @@
-module github.com/filecoin-project/specs-actors/v3
+module github.com/chenjianmei111/specs-actors/v3
 
 go 1.13
 
 require (
+	github.com/chenjianmei111/specs-actors v0.9.14
+	github.com/chenjianmei111/specs-actors/v2 v2.3.5
 	github.com/filecoin-project/go-address v0.0.5
 	github.com/filecoin-project/go-amt-ipld/v2 v2.1.0
 	github.com/filecoin-project/go-amt-ipld/v3 v3.0.0
@@ -10,8 +12,6 @@ require (
 	github.com/filecoin-project/go-hamt-ipld/v2 v2.0.0
 	github.com/filecoin-project/go-hamt-ipld/v3 v3.0.1
 	github.com/filecoin-project/go-state-types v0.1.0
-	github.com/filecoin-project/specs-actors v0.9.13
-	github.com/filecoin-project/specs-actors/v2 v2.3.4
 	github.com/ipfs/go-block-format v0.0.3
 	github.com/ipfs/go-cid v0.0.7
 	github.com/ipfs/go-ipld-cbor v0.0.5

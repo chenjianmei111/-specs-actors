@@ -16,21 +16,21 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	builtin2 "github.com/filecoin-project/specs-actors/v2/actors/builtin"
-	market2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/market"
-	power2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/power"
-	vm2 "github.com/filecoin-project/specs-actors/v2/support/vm"
-	ipld2 "github.com/filecoin-project/specs-actors/v2/support/ipld"
+	builtin2 "github.com/chenjianmei111/specs-actors/v2/actors/builtin"
+	market2 "github.com/chenjianmei111/specs-actors/v2/actors/builtin/market"
+	power2 "github.com/chenjianmei111/specs-actors/v2/actors/builtin/power"
+	vm2 "github.com/chenjianmei111/specs-actors/v2/support/vm"
+	ipld2 "github.com/chenjianmei111/specs-actors/v2/support/ipld"
 
 
-	builtin3 "github.com/filecoin-project/specs-actors/v3/actors/builtin"
-	exported3 "github.com/filecoin-project/specs-actors/v3/actors/builtin/exported"
-	market3 "github.com/filecoin-project/specs-actors/v3/actors/builtin/market"
-	miner3 "github.com/filecoin-project/specs-actors/v3/actors/builtin/miner"
-	"github.com/filecoin-project/specs-actors/v3/actors/migration/nv10"
-	states3 "github.com/filecoin-project/specs-actors/v3/actors/states"
-	tutil "github.com/filecoin-project/specs-actors/v3/support/testing"
-	vm3 "github.com/filecoin-project/specs-actors/v3/support/vm"
+	builtin3 "github.com/chenjianmei111/specs-actors/v3/actors/builtin"
+	exported3 "github.com/chenjianmei111/specs-actors/v3/actors/builtin/exported"
+	market3 "github.com/chenjianmei111/specs-actors/v3/actors/builtin/market"
+	miner3 "github.com/chenjianmei111/specs-actors/v3/actors/builtin/miner"
+	"github.com/chenjianmei111/specs-actors/v3/actors/migration/nv10"
+	states3 "github.com/chenjianmei111/specs-actors/v3/actors/states"
+	tutil "github.com/chenjianmei111/specs-actors/v3/support/testing"
+	vm3 "github.com/chenjianmei111/specs-actors/v3/support/vm"
 )
 
 func TestUpdatePendingDealsMigration(t *testing.T) {

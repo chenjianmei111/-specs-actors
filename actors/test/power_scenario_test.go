@@ -8,11 +8,11 @@ import (
 	"github.com/filecoin-project/go-state-types/big"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/specs-actors/v3/actors/builtin"
-	"github.com/filecoin-project/specs-actors/v3/actors/builtin/miner"
-	"github.com/filecoin-project/specs-actors/v3/actors/builtin/power"
-	"github.com/filecoin-project/specs-actors/v3/support/ipld"
-	vm "github.com/filecoin-project/specs-actors/v3/support/vm"
+	"github.com/chenjianmei111/specs-actors/v3/actors/builtin"
+	"github.com/chenjianmei111/specs-actors/v3/actors/builtin/miner"
+	"github.com/chenjianmei111/specs-actors/v3/actors/builtin/power"
+	"github.com/chenjianmei111/specs-actors/v3/support/ipld"
+	vm "github.com/chenjianmei111/specs-actors/v3/support/vm"
 )
 
 func TestCreateMiner(t *testing.T) {

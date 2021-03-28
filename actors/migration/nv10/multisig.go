@@ -3,12 +3,12 @@ package nv10
 import (
 	"context"
 
-	multisig2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/multisig"
+	multisig2 "github.com/chenjianmei111/specs-actors/v2/actors/builtin/multisig"
 	cid "github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
 
-	builtin3 "github.com/filecoin-project/specs-actors/v3/actors/builtin"
-	multisig3 "github.com/filecoin-project/specs-actors/v3/actors/builtin/multisig"
+	builtin3 "github.com/chenjianmei111/specs-actors/v3/actors/builtin"
+	multisig3 "github.com/chenjianmei111/specs-actors/v3/actors/builtin/multisig"
 )
 
 type multisigMigrator struct{}

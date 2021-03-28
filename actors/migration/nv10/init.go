@@ -3,12 +3,12 @@ package nv10
 import (
 	"context"
 
-	init2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/init"
+	init2 "github.com/chenjianmei111/specs-actors/v2/actors/builtin/init"
 	cid "github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
 
-	builtin3 "github.com/filecoin-project/specs-actors/v3/actors/builtin"
-	init3 "github.com/filecoin-project/specs-actors/v3/actors/builtin/init"
+	builtin3 "github.com/chenjianmei111/specs-actors/v3/actors/builtin"
+	init3 "github.com/chenjianmei111/specs-actors/v3/actors/builtin/init"
 )
 
 type initMigrator struct{}

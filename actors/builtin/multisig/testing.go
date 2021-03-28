@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"encoding/binary"
 	"github.com/filecoin-project/go-address"
-	"github.com/filecoin-project/specs-actors/v3/actors/builtin"
-	"github.com/filecoin-project/specs-actors/v3/actors/util/adt"
+	"github.com/chenjianmei111/specs-actors/v3/actors/builtin"
+	"github.com/chenjianmei111/specs-actors/v3/actors/util/adt"
 )
 
 type StateSummary struct {
@@ -23,7 +23,7 @@ func CheckStateInvariants(st *State, store adt.Store) (*StateSummary, *builtin.M
 	acc.Require(uint64(len(st.Signers)) >= st.NumApprovalsThreshold,
 		"multisig has insufficient signers to meet threshold (%d < %d)", len(st.Signers), st.NumApprovalsThreshold)
 
-	if st.UnlockDuration == 0 { // See https://github.com/filecoin-project/specs-actors/issues/1185
+	if st.UnlockDuration == 0 { // See https://github.com/chenjianmei111/specs-actors/issues/1185
 		acc.Require(st.StartEpoch == 0, "non-zero start epoch %d with zero unlock duration", st.StartEpoch)
 		acc.Require(st.InitialBalance.IsZero(), "non-zero locked balance %v with zero unlock duration", st.InitialBalance)
 	}
