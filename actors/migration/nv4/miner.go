@@ -3,8 +3,8 @@ package nv4
 import (
 	"context"
 
-	"github.com/filecoin-project/go-bitfield"
-	"github.com/filecoin-project/go-state-types/big"
+	"github.com/chenjianmei111/go-bitfield"
+	"github.com/chenjianmei111/go-state-types/big"
 	miner0 "github.com/chenjianmei111/specs-actors/actors/builtin/miner"
 	adt0 "github.com/chenjianmei111/specs-actors/actors/util/adt"
 	cid "github.com/ipfs/go-cid"

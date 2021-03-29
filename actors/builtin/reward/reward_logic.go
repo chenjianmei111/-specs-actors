@@ -2,8 +2,8 @@ package reward
 
 import (
 	"fmt"
-	"github.com/filecoin-project/go-state-types/abi"
-	"github.com/filecoin-project/go-state-types/big"
+	"github.com/chenjianmei111/go-state-types/abi"
+	"github.com/chenjianmei111/go-state-types/big"
 
 	"github.com/chenjianmei111/specs-actors/v2/actors/util/math"
 )
@@ -78,28 +78,24 @@ var (
 // Computes a reward for all expected leaders when effective network time changes from prevTheta to currTheta
 // Inputs are in Q.128 format
 func computeReward(epoch abi.ChainEpoch, prevTheta, currTheta, simpleTotal, baselineTotal big.Int) abi.TokenAmount {
-	//第一年,9000000,1 epoch = 20s
-	if epoch < 1576800 {
-		return big.Mul(big.NewInt(57077625570776), big.NewInt(1e5))
-	}
-	//第二至第四年
-	if 1576800 < epoch && epoch < 6307200 {
-		return big.Mul(big.NewInt(12366818873668), big.NewInt(1e6))
+	//1 epoch = 20s,一年 1576800 epoch
+	//第一至第四年
+	if epoch < 6307200 {
+		return big.Mul(big.NewInt(11415525114155), big.NewInt(1e6))
 	}
 	//第五至第八年
 	if 6307200 < epoch && epoch < 12614400 {
-		return big.Mul(big.NewInt(6183409436834), big.NewInt(1e6))
+		return big.Mul(big.NewInt(57077625570776), big.NewInt(1e5))
 	}
 	//第九至第12年
 	if 12614400 < epoch && epoch < 18921600 {
-		return big.Mul(big.NewInt(3091704718417), big.NewInt(1e6))
+		return big.Mul(big.NewInt(28538812785388), big.NewInt(1e5))
 	}
 	//第13至第32年
 	if 18921600 < epoch && epoch < 50457600 {
 		return big.Mul(big.NewInt(14269406392694), big.NewInt(1e5))
 	}
 	if epoch > 50457600 {
-
 		simpleReward := big.Mul(simpleTotal, ExpLamSubOne)    //Q.0 * Q.128 =>  Q.128
 		epochLam := big.Mul(big.NewInt(int64(epoch)), Lambda) // Q.0 * Q.128 => Q.128
 

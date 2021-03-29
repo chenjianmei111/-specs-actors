@@ -3,7 +3,7 @@ package multisig
 import (
 	"bytes"
 	"encoding/binary"
-	"github.com/filecoin-project/go-address"
+	"github.com/chenjianmei111/go-address"
 	"github.com/chenjianmei111/specs-actors/v2/actors/builtin"
 	"github.com/chenjianmei111/specs-actors/v2/actors/util/adt"
 )

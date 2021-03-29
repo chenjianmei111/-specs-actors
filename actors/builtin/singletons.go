@@ -1,7 +1,7 @@
 package builtin
 
 import (
-	addr "github.com/filecoin-project/go-address"
+	addr "github.com/chenjianmei111/go-address"
 )
 
 // Addresses for singleton system actors.

@@ -1,7 +1,7 @@
 package builtin
 
 import (
-	stabi "github.com/filecoin-project/go-state-types/abi"
+	stabi "github.com/chenjianmei111/go-state-types/abi"
 	"github.com/pkg/errors"
 )
 
@@ -99,7 +99,7 @@ type PoStProofPolicy struct {
 }
 
 // Partition sizes must match those used by the proofs library.
-// See https://github.com/filecoin-project/rust-fil-proofs/blob/master/filecoin-proofs/src/constants.rs#L85
+// See https://github.com/chenjianmei111/rust-fil-proofs/blob/master/filecoin-proofs/src/constants.rs#L85
 var PoStProofPolicies = map[stabi.RegisteredPoStProof]*PoStProofPolicy{
 	stabi.RegisteredPoStProof_StackedDrgWindow2KiBV1: {
 		WindowPoStPartitionSectors: 2,

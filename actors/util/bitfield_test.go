@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/filecoin-project/go-bitfield"
+	"github.com/chenjianmei111/go-bitfield"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/chenjianmei111/specs-actors/v2/actors/util"

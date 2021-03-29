@@ -1,10 +1,10 @@
 package miner
 
 import (
-	addr "github.com/filecoin-project/go-address"
-	"github.com/filecoin-project/go-bitfield"
-	"github.com/filecoin-project/go-state-types/abi"
-	"github.com/filecoin-project/go-state-types/big"
+	addr "github.com/chenjianmei111/go-address"
+	"github.com/chenjianmei111/go-bitfield"
+	"github.com/chenjianmei111/go-state-types/abi"
+	"github.com/chenjianmei111/go-state-types/big"
 
 	"github.com/chenjianmei111/specs-actors/v2/actors/builtin"
 	"github.com/chenjianmei111/specs-actors/v2/actors/util"

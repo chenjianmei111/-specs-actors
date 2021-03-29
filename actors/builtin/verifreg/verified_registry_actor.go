@@ -1,13 +1,13 @@
 package verifreg
 
 import (
-	addr "github.com/filecoin-project/go-address"
-	"github.com/filecoin-project/go-state-types/abi"
-	"github.com/filecoin-project/go-state-types/cbor"
+	addr "github.com/chenjianmei111/go-address"
+	"github.com/chenjianmei111/go-state-types/abi"
+	"github.com/chenjianmei111/go-state-types/cbor"
 	"github.com/ipfs/go-cid"
 
-	"github.com/filecoin-project/go-state-types/big"
-	"github.com/filecoin-project/go-state-types/exitcode"
+	"github.com/chenjianmei111/go-state-types/big"
+	"github.com/chenjianmei111/go-state-types/exitcode"
 	verifreg0 "github.com/chenjianmei111/specs-actors/actors/builtin/verifreg"
 
 	"github.com/chenjianmei111/specs-actors/v2/actors/builtin"

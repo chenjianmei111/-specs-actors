@@ -4,8 +4,8 @@ import (
 	"math"
 	"sort"
 
-	"github.com/filecoin-project/go-bitfield"
-	"github.com/filecoin-project/go-state-types/network"
+	"github.com/chenjianmei111/go-bitfield"
+	"github.com/chenjianmei111/go-state-types/network"
 	"golang.org/x/xerrors"
 )
 

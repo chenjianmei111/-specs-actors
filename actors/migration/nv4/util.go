@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"context"
 
-	hamt0 "github.com/filecoin-project/go-hamt-ipld"
-	hamt2 "github.com/filecoin-project/go-hamt-ipld/v2"
+	hamt0 "github.com/chenjianmei111/go-hamt-ipld"
+	hamt2 "github.com/chenjianmei111/go-hamt-ipld/v2"
 	adt0 "github.com/chenjianmei111/specs-actors/actors/util/adt"
 	cid "github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
@@ -21,7 +21,7 @@ func (k StringKey) Key() string {
 	return string(k)
 }
 
-// Migrates a HAMT from v0 (ipfs) to v2 (filecoin-project) without re-encoding keys or values.
+// Migrates a HAMT from v0 (ipfs) to v2 (chenjianmei111) without re-encoding keys or values.
 func migrateHAMTRaw(ctx context.Context, store cbor.IpldStore, root cid.Cid) (cid.Cid, error) {
 	inRootNode, err := hamt0.LoadNode(ctx, store, root, adt0.HamtOptions...)
 	if err != nil {
@@ -43,7 +43,7 @@ func migrateHAMTRaw(ctx context.Context, store cbor.IpldStore, root cid.Cid) (ci
 	return store.Put(ctx, outRootNode)
 }
 
-// Migrates a HAMT of HAMTS from v0 (ipfs) to v2 (filecoin-project) without re-encoding leaf keys or values.
+// Migrates a HAMT of HAMTS from v0 (ipfs) to v2 (chenjianmei111) without re-encoding leaf keys or values.
 func migrateHAMTHAMTRaw(ctx context.Context, store cbor.IpldStore, root cid.Cid) (cid.Cid, error) {
 	inRootNode, err := hamt0.LoadNode(ctx, store, root, adt0.HamtOptions...)
 	if err != nil {

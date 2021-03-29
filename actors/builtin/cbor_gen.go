@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"io"
 
-	address "github.com/filecoin-project/go-address"
+	address "github.com/chenjianmei111/go-address"
 	cbg "github.com/whyrusleeping/cbor-gen"
 	xerrors "golang.org/x/xerrors"
 )

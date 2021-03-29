@@ -2,15 +2,15 @@ package power
 
 import (
 	"bytes"
-	addr "github.com/filecoin-project/go-address"
-	"github.com/filecoin-project/go-state-types/abi"
-	"github.com/filecoin-project/go-state-types/cbor"
-	"github.com/filecoin-project/go-state-types/exitcode"
-	"github.com/filecoin-project/go-state-types/network"
+	addr "github.com/chenjianmei111/go-address"
+	"github.com/chenjianmei111/go-state-types/abi"
+	"github.com/chenjianmei111/go-state-types/cbor"
+	"github.com/chenjianmei111/go-state-types/exitcode"
+	"github.com/chenjianmei111/go-state-types/network"
 	power0 "github.com/chenjianmei111/specs-actors/actors/builtin/power"
 	"github.com/ipfs/go-cid"
 
-	rtt "github.com/filecoin-project/go-state-types/rt"
+	rtt "github.com/chenjianmei111/go-state-types/rt"
 	"github.com/chenjianmei111/specs-actors/v2/actors/builtin"
 	initact "github.com/chenjianmei111/specs-actors/v2/actors/builtin/init"
 	"github.com/chenjianmei111/specs-actors/v2/actors/runtime"
