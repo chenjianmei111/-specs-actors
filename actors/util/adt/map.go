@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"crypto/sha256"
 
-	hamt "github.com/filecoin-project/go-hamt-ipld/v3"
-	"github.com/filecoin-project/go-state-types/abi"
-	"github.com/filecoin-project/go-state-types/cbor"
+	hamt "github.com/chenjianmei111/go-hamt-ipld/v3"
+	"github.com/chenjianmei111/go-state-types/abi"
+	"github.com/chenjianmei111/go-state-types/cbor"
 	cid "github.com/ipfs/go-cid"
 	cbg "github.com/whyrusleeping/cbor-gen"
 	"golang.org/x/xerrors"
@@ -30,7 +30,7 @@ type Map struct {
 
 // AsMap interprets a store as a HAMT-based map with root `r`.
 // The HAMT is interpreted with branching factor 2^bitwidth.
-// We could drop this parameter if https://github.com/filecoin-project/go-hamt-ipld/issues/79 is implemented.
+// We could drop this parameter if https://github.com/chenjianmei111/go-hamt-ipld/issues/79 is implemented.
 func AsMap(s Store, root cid.Cid, bitwidth int) (*Map, error) {
 	options := append(DefaultHamtOptions, hamt.UseTreeBitWidth(bitwidth))
 	nd, err := hamt.LoadNode(s.Context(), s, root, options...)

@@ -1,7 +1,7 @@
 package testing
 
 import (
-	addr "github.com/filecoin-project/go-address"
+	addr "github.com/chenjianmei111/go-address"
 	"github.com/stretchr/testify/require"
 	"math/rand"
 	"testing"

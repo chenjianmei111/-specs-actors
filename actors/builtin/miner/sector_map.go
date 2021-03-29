@@ -4,7 +4,7 @@ import (
 	"math"
 	"sort"
 
-	"github.com/filecoin-project/go-bitfield"
+	"github.com/chenjianmei111/go-bitfield"
 	"golang.org/x/xerrors"
 )
 

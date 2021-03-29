@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/filecoin-project/go-address"
+	"github.com/chenjianmei111/go-address"
 	"github.com/stretchr/testify/require"
 
 	"github.com/chenjianmei111/specs-actors/v3/actors/util/adt"

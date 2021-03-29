@@ -3,7 +3,7 @@ package nv10
 import (
 	"context"
 
-	"github.com/filecoin-project/go-bitfield"
+	"github.com/chenjianmei111/go-bitfield"
 	cid "github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
 	"golang.org/x/xerrors"

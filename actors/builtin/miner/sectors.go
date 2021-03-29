@@ -3,9 +3,9 @@ package miner
 import (
 	"fmt"
 
-	"github.com/filecoin-project/go-bitfield"
-	"github.com/filecoin-project/go-state-types/abi"
-	xc "github.com/filecoin-project/go-state-types/exitcode"
+	"github.com/chenjianmei111/go-bitfield"
+	"github.com/chenjianmei111/go-state-types/abi"
+	xc "github.com/chenjianmei111/go-state-types/exitcode"
 	"github.com/ipfs/go-cid"
 	"golang.org/x/xerrors"
 

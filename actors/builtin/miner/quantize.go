@@ -1,6 +1,6 @@
 package miner
 
-import "github.com/filecoin-project/go-state-types/abi"
+import "github.com/chenjianmei111/go-state-types/abi"
 
 // A spec for quantization.
 type QuantSpec struct {

@@ -1,6 +1,6 @@
 package math
 
-import "github.com/filecoin-project/go-state-types/big"
+import "github.com/chenjianmei111/go-state-types/big"
 
 // ExpBySquaring takes a Q.128 base b and an int64 exponent n and computes n^b
 // using the exponentiation by squaring method, returning a Q.128 value.

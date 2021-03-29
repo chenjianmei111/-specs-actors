@@ -1,8 +1,8 @@
 package util
 
 import (
-	"github.com/filecoin-project/go-bitfield"
-	"github.com/filecoin-project/go-bitfield/rle"
+	"github.com/chenjianmei111/go-bitfield"
+	"github.com/chenjianmei111/go-bitfield/rle"
 )
 
 type BitField = bitfield.BitField
