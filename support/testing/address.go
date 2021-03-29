@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"testing"
 
-	addr "github.com/filecoin-project/go-address"
+	addr "github.com/chenjianmei111/go-address"
 )
 
 func NewIDAddr(t testing.TB, id uint64) addr.Address {

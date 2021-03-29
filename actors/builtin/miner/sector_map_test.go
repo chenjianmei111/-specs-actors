@@ -5,7 +5,7 @@ import (
 	"math"
 	"testing"
 
-	"github.com/filecoin-project/go-bitfield"
+	"github.com/chenjianmei111/go-bitfield"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 

@@ -3,9 +3,9 @@ package miner
 import (
 	"testing"
 
-	"github.com/filecoin-project/go-state-types/abi"
-	"github.com/filecoin-project/go-state-types/big"
-	"github.com/filecoin-project/go-state-types/network"
+	"github.com/chenjianmei111/go-state-types/abi"
+	"github.com/chenjianmei111/go-state-types/big"
+	"github.com/chenjianmei111/go-state-types/network"
 	"github.com/minio/blake2b-simd"
 	"github.com/stretchr/testify/assert"
 

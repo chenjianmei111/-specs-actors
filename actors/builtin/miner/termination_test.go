@@ -3,8 +3,8 @@ package miner_test
 import (
 	"testing"
 
-	"github.com/filecoin-project/go-bitfield"
-	"github.com/filecoin-project/go-state-types/abi"
+	"github.com/chenjianmei111/go-bitfield"
+	"github.com/chenjianmei111/go-state-types/abi"
 	"github.com/stretchr/testify/require"
 
 	"github.com/chenjianmei111/specs-actors/actors/builtin/miner"

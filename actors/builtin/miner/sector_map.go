@@ -6,7 +6,7 @@ import (
 
 	"golang.org/x/xerrors"
 
-	"github.com/filecoin-project/go-bitfield"
+	"github.com/chenjianmei111/go-bitfield"
 )
 
 // Maps deadlines to partition maps.

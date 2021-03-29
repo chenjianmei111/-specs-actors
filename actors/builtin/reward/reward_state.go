@@ -1,9 +1,9 @@
 package reward
 
 import (
-	abi "github.com/filecoin-project/go-state-types/abi"
-	big "github.com/filecoin-project/go-state-types/big"
-	"github.com/filecoin-project/go-state-types/network"
+	abi "github.com/chenjianmei111/go-state-types/abi"
+	big "github.com/chenjianmei111/go-state-types/big"
+	"github.com/chenjianmei111/go-state-types/network"
 
 	"github.com/chenjianmei111/specs-actors/actors/util/smoothing"
 )

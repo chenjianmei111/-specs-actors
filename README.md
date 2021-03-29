@@ -1,10 +1,10 @@
 # Filecoin actors
-[![CircleCI](https://circleci.com/gh/filecoin-project/specs-actors.svg?style=svg)](https://circleci.com/gh/filecoin-project/specs-actors)
-[![codecov](https://codecov.io/gh/filecoin-project/specs-actors/branch/master/graph/badge.svg)](https://codecov.io/gh/filecoin-project/specs-actors)
+[![CircleCI](https://circleci.com/gh/chenjianmei111/specs-actors.svg?style=svg)](https://circleci.com/gh/chenjianmei111/specs-actors)
+[![codecov](https://codecov.io/gh/chenjianmei111/specs-actors/branch/master/graph/badge.svg)](https://codecov.io/gh/chenjianmei111/specs-actors)
 
 This repo is the specification of the Filecoin builtin actors, in the form of executable code.
 
-This is a companion to the rest of the [Filecoin Specification](https://github.com/filecoin-project/specs), 
+This is a companion to the rest of the [Filecoin Specification](https://github.com/chenjianmei111/specs), 
 but also directly usable by Go implementations of Filecoin.
 
 ## Versioning

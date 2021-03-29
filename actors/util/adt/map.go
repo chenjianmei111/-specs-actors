@@ -3,9 +3,9 @@ package adt
 import (
 	"bytes"
 
-	hamt "github.com/filecoin-project/go-hamt-ipld"
-	"github.com/filecoin-project/go-state-types/abi"
-	"github.com/filecoin-project/go-state-types/cbor"
+	hamt "github.com/chenjianmei111/go-hamt-ipld"
+	"github.com/chenjianmei111/go-state-types/abi"
+	"github.com/chenjianmei111/go-state-types/cbor"
 	cid "github.com/ipfs/go-cid"
 	"github.com/minio/sha256-simd"
 	errors "github.com/pkg/errors"

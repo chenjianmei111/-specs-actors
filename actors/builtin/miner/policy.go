@@ -3,8 +3,8 @@ package miner
 import (
 	"fmt"
 
-	abi "github.com/filecoin-project/go-state-types/abi"
-	big "github.com/filecoin-project/go-state-types/big"
+	abi "github.com/chenjianmei111/go-state-types/abi"
+	big "github.com/chenjianmei111/go-state-types/big"
 	"github.com/ipfs/go-cid"
 	mh "github.com/multiformats/go-multihash"
 

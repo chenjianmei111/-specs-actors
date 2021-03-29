@@ -3,11 +3,11 @@ module github.com/chenjianmei111/specs-actors
 go 1.13
 
 require (
-	github.com/filecoin-project/go-address v0.0.3
-	github.com/filecoin-project/go-amt-ipld/v2 v2.1.0
-	github.com/filecoin-project/go-bitfield v0.2.0
-	github.com/filecoin-project/go-hamt-ipld v0.1.5
-	github.com/filecoin-project/go-state-types v0.0.0-20200928172055-2df22083d8ab
+	github.com/chenjianmei111/go-address v0.0.6
+	github.com/chenjianmei111/go-amt-ipld/v2 v2.1.2
+	github.com/chenjianmei111/go-bitfield v0.2.5
+	github.com/chenjianmei111/go-hamt-ipld v0.1.6
+	github.com/chenjianmei111/go-state-types v0.2.0
 	github.com/gopherjs/gopherjs v0.0.0-20190812055157-5d271430af9f // indirect
 	github.com/ipfs/go-block-format v0.0.2
 	github.com/ipfs/go-cid v0.0.7

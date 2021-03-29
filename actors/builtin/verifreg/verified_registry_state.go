@@ -1,9 +1,9 @@
 package verifreg
 
 import (
-	addr "github.com/filecoin-project/go-address"
-	abi "github.com/filecoin-project/go-state-types/abi"
-	big "github.com/filecoin-project/go-state-types/big"
+	addr "github.com/chenjianmei111/go-address"
+	abi "github.com/chenjianmei111/go-state-types/abi"
+	big "github.com/chenjianmei111/go-state-types/big"
 	cid "github.com/ipfs/go-cid"
 )
 
