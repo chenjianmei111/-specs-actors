@@ -3,15 +3,15 @@ module github.com/chenjianmei111/specs-actors/v3
 go 1.13
 
 require (
-	github.com/chenjianmei111/go-address v0.0.6
+	github.com/chenjianmei111/go-address v0.0.7
 	github.com/chenjianmei111/go-amt-ipld/v2 v2.1.2
 	github.com/chenjianmei111/go-amt-ipld/v3 v3.0.1
 	github.com/chenjianmei111/go-bitfield v0.2.5
 	github.com/chenjianmei111/go-hamt-ipld/v2 v2.0.1
 	github.com/chenjianmei111/go-hamt-ipld/v3 v3.0.2
-	github.com/chenjianmei111/go-state-types v0.2.0
-	github.com/chenjianmei111/specs-actors v0.9.45
-	github.com/chenjianmei111/specs-actors/v2 v2.3.10
+	github.com/chenjianmei111/go-state-types v0.2.1
+	github.com/chenjianmei111/specs-actors v0.9.46
+	github.com/chenjianmei111/specs-actors/v2 v2.3.11
 	github.com/ipfs/go-block-format v0.0.3
 	github.com/ipfs/go-cid v0.0.7
 	github.com/ipfs/go-ipld-cbor v0.0.5
