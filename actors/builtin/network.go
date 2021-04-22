@@ -16,7 +16,7 @@ import (
 // https://github.com/chenjianmei111/specs-actors/issues/353
 // If EpochDurationSeconds is changed, update `BaselineExponent`, `lambda`, and // `expLamSubOne` in ./reward/reward_logic.go
 // You can re-calculate these constants by changing the epoch duration in ./reward/reward_calc.py and running it.
-const EpochDurationSeconds = 30
+const EpochDurationSeconds = 20
 const SecondsInHour = 60 * 60
 const SecondsInDay = 24 * SecondsInHour
 const EpochsInHour = SecondsInHour / EpochDurationSeconds
@@ -45,7 +45,7 @@ func init() {
 var TokenPrecision = big.NewIntUnsigned(1_000_000_000_000_000_000)
 
 // The maximum supply of Filecoin that will ever exist (in token units)
-var TotalFilecoin = big.Mul(big.NewIntUnsigned(2_000_000_000), TokenPrecision)
+var TotalFilecoin = big.Mul(big.NewIntUnsigned(180_000_000), TokenPrecision)
 
 // Quality multiplier for committed capacity (no deals) in a sector
 var QualityBaseMultiplier = big.NewInt(10)

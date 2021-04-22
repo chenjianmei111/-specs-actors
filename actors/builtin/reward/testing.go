@@ -10,7 +10,7 @@ import (
 type StateSummary struct{}
 
 var FIL = big.NewInt(1e18)
-var StorageMiningAllocationCheck = big.Mul(big.NewInt(1_100_000_000), FIL)
+var StorageMiningAllocationCheck = big.Mul(big.NewInt(171_000_000), FIL)
 
 func CheckStateInvariants(st *State, store adt.Store, priorEpoch abi.ChainEpoch, balance abi.TokenAmount) (*StateSummary, *builtin.MessageAccumulator) {
 	acc := &builtin.MessageAccumulator{}

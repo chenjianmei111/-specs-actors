@@ -50,7 +50,7 @@ func (a Actor) Constructor(rt runtime.Runtime, currRealizedPower *abi.StoragePow
 		rt.Abortf(exitcode.ErrIllegalArgument, "argument should not be nil")
 		return nil // linter does not understand abort exiting
 	}
-	st := ConstructState(*currRealizedPower)
+	st := ConstructState(rt, *currRealizedPower)
 	rt.StateCreate(st)
 	return nil
 }
@@ -173,7 +173,7 @@ func (a Actor) UpdateNetworkKPI(rt runtime.Runtime, currRealizedPower *abi.Stora
 			st.updateToNextEpoch(*currRealizedPower)
 		}
 
-		st.updateToNextEpochWithReward(*currRealizedPower)
+		st.updateToNextEpochWithReward(rt, *currRealizedPower)
 		// only update smoothed estimates after updating reward and epoch
 		st.updateSmoothedEstimates(st.Epoch - prev)
 	})

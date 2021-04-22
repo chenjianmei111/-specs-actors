@@ -68,11 +68,11 @@ func NewVMWithSingletons(ctx context.Context, t testing.TB, bs ipldcbor.IpldBloc
 	require.NoError(t, err)
 
 	initializeActor(ctx, t, vm, &system.State{}, builtin.SystemActorCodeID, builtin.SystemActorAddr, big.Zero())
-
+	var tr runtime.Runtime
 	initState := initactor.ConstructState(emptyMapCID, "scenarios")
 	initializeActor(ctx, t, vm, initState, builtin.InitActorCodeID, builtin.InitActorAddr, big.Zero())
 
-	rewardState := reward.ConstructState(abi.NewStoragePower(0))
+	rewardState := reward.ConstructState(tr, abi.NewStoragePower(0))
 	initializeActor(ctx, t, vm, rewardState, builtin.RewardActorCodeID, builtin.RewardActorAddr, reward.StorageMiningAllocationCheck)
 
 	cronState := cron.ConstructState(cron.BuiltInEntries())

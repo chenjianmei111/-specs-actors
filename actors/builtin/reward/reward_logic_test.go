@@ -3,17 +3,19 @@ package reward
 import (
 	"bytes"
 	"fmt"
-	gbig "math/big"
-	"testing"
-
 	"github.com/chenjianmei111/go-state-types/abi"
 	"github.com/chenjianmei111/go-state-types/big"
+	"github.com/chenjianmei111/specs-actors/v2/actors/runtime"
 	"github.com/stretchr/testify/assert"
 	"github.com/xorcare/golden"
+	gbig "math/big"
+	"testing"
 
 	"github.com/chenjianmei111/specs-actors/v2/actors/builtin"
 	"github.com/chenjianmei111/specs-actors/v2/actors/util/math"
 )
+
+var testr runtime.Runtime
 
 func q128ToF(x big.Int) float64 {
 	q128 := new(gbig.Int).SetInt64(1)
@@ -54,10 +56,10 @@ func TestBaselineReward(t *testing.T) {
 
 	b := &bytes.Buffer{}
 	b.WriteString("t0, t1, y\n")
-	simple := computeReward(0, big.Zero(), big.Zero(), DefaultSimpleTotal, DefaultBaselineTotal)
+	simple := computeReward(testr, 0, big.Zero(), big.Zero(), DefaultSimpleTotal, DefaultBaselineTotal)
 
 	for i := 0; i < 512; i++ {
-		reward := computeReward(0, big.NewFromGo(prevTheta), big.NewFromGo(theta), DefaultSimpleTotal, DefaultBaselineTotal)
+		reward := computeReward(testr, 0, big.NewFromGo(prevTheta), big.NewFromGo(theta), DefaultSimpleTotal, DefaultBaselineTotal)
 		reward = big.Sub(reward, simple)
 		fmt.Fprintf(b, "%s,%s,%s\n", prevTheta, theta, reward.Int)
 		prevTheta = prevTheta.Add(prevTheta, step)
@@ -72,7 +74,7 @@ func TestSimpleReward(t *testing.T) {
 	b.WriteString("x, y\n")
 	for i := int64(0); i < 512; i++ {
 		x := i * 5000
-		reward := computeReward(abi.ChainEpoch(x), big.Zero(), big.Zero(), DefaultSimpleTotal, DefaultBaselineTotal)
+		reward := computeReward(testr, abi.ChainEpoch(x), big.Zero(), big.Zero(), DefaultSimpleTotal, DefaultBaselineTotal)
 		fmt.Fprintf(b, "%d,%s\n", x, reward.Int)
 	}
 

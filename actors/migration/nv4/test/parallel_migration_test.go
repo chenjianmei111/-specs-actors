@@ -20,6 +20,7 @@ import (
 	"github.com/chenjianmei111/specs-actors/actors/states"
 	"github.com/chenjianmei111/specs-actors/actors/util/adt"
 	"github.com/chenjianmei111/specs-actors/v2/actors/migration/nv4"
+	"github.com/chenjianmei111/specs-actors/v2/actors/runtime"
 	ipld2 "github.com/chenjianmei111/specs-actors/v2/support/ipld"
 	cid "github.com/ipfs/go-cid"
 	"github.com/stretchr/testify/assert"
@@ -56,8 +57,8 @@ func TestParallelMigrationCalls(t *testing.T) {
 
 	initState := initactor.ConstructState(emptyMapCID, "scenarios")
 	initializeActor(ctx, t, actorsIn, initState, builtin.InitActorCodeID, builtin.InitActorAddr, big.Zero())
-
-	rewardState := reward.ConstructState(abi.NewStoragePower(0))
+	var rt runtime.Runtime
+	rewardState := reward.ConstructState(rt, abi.NewStoragePower(0))
 	initializeActor(ctx, t, actorsIn, rewardState, builtin.RewardActorCodeID, builtin.RewardActorAddr, builtin.TotalFilecoin)
 
 	cronState := cron.ConstructState(cron.BuiltInEntries())
