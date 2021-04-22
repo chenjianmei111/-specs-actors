@@ -72,8 +72,8 @@ func NewVMWithSingletons(ctx context.Context, t *testing.T) *VM {
 
 	initState := initactor.ConstructState(emptyMapCID, "scenarios")
 	initializeActor(ctx, t, vm, initState, builtin.InitActorCodeID, builtin.InitActorAddr, big.Zero())
-
-	rewardState := reward.ConstructState(abi.NewStoragePower(0))
+	var tr runtime.Runtime
+	rewardState := reward.ConstructState(tr, abi.NewStoragePower(0))
 	initializeActor(ctx, t, vm, rewardState, builtin.RewardActorCodeID, builtin.RewardActorAddr, big.Max(big.NewInt(14e8), FIL))
 
 	cronState := cron.ConstructState(cron.BuiltInEntries())

@@ -4,6 +4,7 @@ import (
 	abi "github.com/chenjianmei111/go-state-types/abi"
 	big "github.com/chenjianmei111/go-state-types/big"
 	"github.com/chenjianmei111/go-state-types/network"
+	"github.com/chenjianmei111/specs-actors/actors/runtime"
 
 	"github.com/chenjianmei111/specs-actors/actors/util/smoothing"
 )
@@ -55,7 +56,7 @@ type State struct {
 	TotalMined abi.TokenAmount
 }
 
-func ConstructState(currRealizedPower abi.StoragePower) *State {
+func ConstructState(rt runtime.Runtime, currRealizedPower abi.StoragePower) *State {
 	st := &State{
 		CumsumBaseline:         big.Zero(),
 		CumsumRealized:         big.Zero(),
@@ -70,7 +71,7 @@ func ConstructState(currRealizedPower abi.StoragePower) *State {
 		TotalMined:              big.Zero(),
 	}
 
-	st.updateToNextEpochWithReward(currRealizedPower, network.Version0)
+	st.updateToNextEpochWithReward(rt, currRealizedPower, network.Version0)
 
 	return st
 }
@@ -92,12 +93,12 @@ func (st *State) updateToNextEpoch(currRealizedPower abi.StoragePower, nv networ
 
 // Takes in a current realized power for a reward epoch and computes
 // and updates reward state to track reward for the next epoch
-func (st *State) updateToNextEpochWithReward(currRealizedPower abi.StoragePower, nv network.Version) {
+func (st *State) updateToNextEpochWithReward(rt runtime.Runtime, currRealizedPower abi.StoragePower, nv network.Version) {
 	prevRewardTheta := computeRTheta(st.EffectiveNetworkTime, st.EffectiveBaselinePower, st.CumsumRealized, st.CumsumBaseline)
 	st.updateToNextEpoch(currRealizedPower, nv)
 	currRewardTheta := computeRTheta(st.EffectiveNetworkTime, st.EffectiveBaselinePower, st.CumsumRealized, st.CumsumBaseline)
 
-	st.ThisEpochReward = computeReward(st.Epoch, prevRewardTheta, currRewardTheta)
+	st.ThisEpochReward = computeReward(rt, st.Epoch, prevRewardTheta, currRewardTheta)
 
 }
 

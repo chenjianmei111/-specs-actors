@@ -5,8 +5,8 @@ import (
 	abi "github.com/chenjianmei111/go-state-types/abi"
 	big "github.com/chenjianmei111/go-state-types/big"
 	"github.com/chenjianmei111/go-state-types/network"
-
 	"github.com/chenjianmei111/specs-actors/actors/builtin"
+	"github.com/chenjianmei111/specs-actors/actors/runtime"
 	"github.com/chenjianmei111/specs-actors/actors/util/math"
 )
 
@@ -96,23 +96,73 @@ var (
 
 // Computes a reward for all expected leaders when effective network time changes from prevTheta to currTheta
 // Inputs are in Q.128 format
-func computeReward(epoch abi.ChainEpoch, prevTheta, currTheta big.Int) abi.TokenAmount {
-	//1 epoch = 20s,一年 1576800 epoch
-	//第一至第四年
-	if epoch < 6307200 {
-		return big.Mul(big.NewInt(11415525114155), big.NewInt(1e6))
+func computeReward(rt runtime.Runtime, epoch abi.ChainEpoch, prevTheta, currTheta big.Int) abi.TokenAmount {
+	//1 epoch = 20s, 1576800 epoch 1year
+	if epoch < 6307200 || epoch == 6307200 {
+
+		if rt == nil {
+			return big.Mul(big.NewInt(11415525114155), big.NewInt(1e6))
+		}
+
+		actualreward := big.Sub(SimpleTotal, rt.CurrentBalance())
+		expectreward := big.Mul(big.NewInt(int64(epoch)), big.Mul(big.NewInt(11415525114155), big.NewInt(1e6)))
+
+		if -1 == big.Cmp(actualreward, expectreward) {
+			return big.Mul(big.NewInt(12915525114155), big.NewInt(1e6))
+		} else {
+			return big.Mul(big.NewInt(10415525114155), big.NewInt(1e6))
+		}
 	}
-	//第五至第八年
 	if 6307200 < epoch && epoch < 12614400 {
-		return big.Mul(big.NewInt(57077625570776), big.NewInt(1e5))
+
+		if rt == nil {
+			return big.Mul(big.NewInt(57077625570776), big.NewInt(1e5))
+		}
+
+		actualreward := big.Sub(SimpleTotal, rt.CurrentBalance())
+		firststagereward := big.Mul(big.NewInt(72000000), big.NewInt(1e18))
+		secondexpectreward := big.Mul(big.NewInt(int64(epoch-6307200)), big.Mul(big.NewInt(57077625570776), big.NewInt(1e5)))
+		totalexpectreward := big.Add(secondexpectreward, firststagereward)
+
+		if -1 == big.Cmp(actualreward, totalexpectreward) {
+			return big.Mul(big.NewInt(67077625570776), big.NewInt(1e5))
+		} else {
+			return big.Mul(big.NewInt(52077625570776), big.NewInt(1e5))
+		}
 	}
-	//第九至第12年
 	if 12614400 < epoch && epoch < 18921600 {
-		return big.Mul(big.NewInt(28538812785388), big.NewInt(1e5))
+
+		if rt == nil {
+			return big.Mul(big.NewInt(28538812785388), big.NewInt(1e5))
+		}
+
+		actualreward := big.Sub(SimpleTotal, rt.CurrentBalance())
+		frontstagereward := big.Add(big.Mul(big.NewInt(72000000), big.NewInt(1e18)), big.Mul(big.NewInt(36000000), big.NewInt(1e18)))
+		currentexpectreward := big.Mul(big.NewInt(int64(epoch-12614400)), big.Mul(big.NewInt(28538812785388), big.NewInt(1e5)))
+		totalexpectreward := big.Add(frontstagereward, currentexpectreward)
+
+		if -1 == big.Cmp(actualreward, totalexpectreward) {
+			return big.Mul(big.NewInt(33538812785388), big.NewInt(1e5))
+		} else {
+			return big.Mul(big.NewInt(23538812785388), big.NewInt(1e5))
+		}
 	}
-	//第13至第32年
 	if 18921600 < epoch && epoch < 50457600 {
-		return big.Mul(big.NewInt(14269406392694), big.NewInt(1e5))
+
+		if rt == nil {
+			return big.Mul(big.NewInt(14269406392694), big.NewInt(1e5))
+		}
+
+		actualreward := big.Sub(SimpleTotal, rt.CurrentBalance())
+		frontstagereward := big.Add(big.Mul(big.NewInt(72000000), big.NewInt(1e18)), big.Mul(big.NewInt(54000000), big.NewInt(1e18)))
+		currentexpectreward := big.Mul(big.NewInt(int64(epoch-18921600)), big.Mul(big.NewInt(14269406392694), big.NewInt(1e5)))
+		totalexpectreward := big.Add(frontstagereward, currentexpectreward)
+
+		if -1 == big.Cmp(actualreward, totalexpectreward) {
+			return big.Mul(big.NewInt(19269406392694), big.NewInt(1e5))
+		} else {
+			return big.Mul(big.NewInt(9269406392694), big.NewInt(1e5))
+		}
 	}
 	if epoch > 50457600 {
 		simpleReward := big.Mul(SimpleTotal, expLamSubOne)    //Q.0 * Q.128 =>  Q.128
